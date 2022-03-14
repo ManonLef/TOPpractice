@@ -38,6 +38,11 @@
         return num;
     }
 
+    //add a random function yourself
+    function pied(num) {
+      return num * 3.14;
+    }
+
     input.addEventListener('change', () => {
         const num = parseFloat(input.value);
         if (isNaN(num)) {
@@ -46,10 +51,12 @@
             para.textContent = `${num} squared is ${squared(num)}.`;
             para.textContent += `${num} cubed is ${cubed(num)}.`;
             para.textContent += `${num} factorial is ${factorial(num)}.`;
+            // add some yourself
+            para.textContent += `${num} pied is ${pied(num)}.`;
         }
     });
     
-
+    
   </script>
 </body>
 </html>
