@@ -40,11 +40,35 @@
 // pow(3, 3) = 3 * 3 * 3 = 27
 // pow(1, 100) = 1 * 1 * ...* 1 = 1
 
-function pow(x,n) {
-    return x**n;
-}
+// function pow(x,n) {
+//     return x**n;
+// }
 
-console.log(pow(5,4));
+// console.log(pow(5,4));
+
+//     Replace Function Expressions with arrow functions in the code below:
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes();
+//   else no();
+// }
+
+// ask(
+//   "Do you agree?",
+//   function() { alert("You agreed."); },
+//   function() { alert("You canceled the execution."); }
+// );
+
+function ask(question, yes, no) {
+   if (confirm(question)) yes();
+   else no();
+ }
+
+ask(
+    "Do you agree?",
+    () => alert("You agreed.") :
+    () => alert("You canceled the execution.");
+    )
 
     </script>
 </body>
