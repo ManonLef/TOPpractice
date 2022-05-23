@@ -10,3 +10,9 @@ const para = document.createElement('p');
 para.textContent = "Hey, I'm red";
 para.setAttribute('style', 'color: red;');
 document.body.appendChild(para);
+
+// 2
+const h3 = document.createElement('h3');
+h3.textContent = "Hey, I'm blue";
+h3.setAttribute('style', 'color: blue;');
+document.body.appendChild(h3);
