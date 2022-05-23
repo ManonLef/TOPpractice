@@ -19,7 +19,7 @@ document.body.appendChild(h3);
 
 // 3
 const container = document.createElement('div');
-container.setAttribute('style', 'background: pink;', 'border: 10px solid black;');
+container.setAttribute('style', 'background: pink; border: 10px solid black;'); // inline 1 string
 document.body.appendChild(container);
 
 const h1 = document.createElement('h1');
