@@ -16,3 +16,17 @@ const h3 = document.createElement('h3');
 h3.textContent = "Hey, I'm blue";
 h3.setAttribute('style', 'color: blue;');
 document.body.appendChild(h3);
+
+// 3
+const container = document.createElement('div');
+container.setAttribute('style', 'background: pink;', 'border: 10px solid black;');
+document.body.appendChild(container);
+
+const h1 = document.createElement('h1');
+h1.textContent = "I'm in a div";
+container.appendChild(h1);
+
+const para2 = document.createElement('p');
+para2.textContent = "Me too!";
+container.appendChild(para2);
+
