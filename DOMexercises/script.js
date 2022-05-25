@@ -40,6 +40,11 @@ const btn = document.querySelector('#btn');
 // }
 
 //method 3
-btn.addEventListener('click', () => {
-    alert("Hello honeythree");
-});
+// btn.addEventListener('click', () => {
+//     alert("Hello honeythree");
+// });
+
+//method named function
+function alertFunction() {
+    alert("Yay not so noob after all!")
+}
