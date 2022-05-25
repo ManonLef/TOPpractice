@@ -32,9 +32,14 @@ container.appendChild(para2);
 
 // method 2 button
 const btn = document.querySelector('#btn');
-btn.onclick = () => alert("Hello World");
+// btn.onclick = () => alert("Hello World");
 
 //my own method without arrow function
 // btn.onclick = function() {
 //     alert("hello babe");
 // }
+
+//method 3
+btn.addEventListener('click', () => {
+    alert("Hello honeythree");
+});
