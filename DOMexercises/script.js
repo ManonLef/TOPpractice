@@ -30,3 +30,11 @@ const para2 = document.createElement('p');
 para2.textContent = "Me too!";
 container.appendChild(para2);
 
+// method 2 button
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert("Hello World");
+
+//my own method without arrow function
+// btn.onclick = function() {
+//     alert("hello babe");
+// }
