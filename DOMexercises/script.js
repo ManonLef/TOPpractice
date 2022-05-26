@@ -45,6 +45,12 @@ const btn = document.querySelector('#btn');
 // });
 
 //method named function
-function alertFunction() {
-    alert("Yay not so noob after all!")
-}
+// function alertFunction() {
+//     alert("Yay not so noob after all!")
+// }
+
+//callback 1
+
+btn.addEventListener('click', function (e) {
+    console.log(e);
+  });
