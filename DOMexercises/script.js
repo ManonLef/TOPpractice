@@ -51,6 +51,13 @@ const btn = document.querySelector('#btn');
 
 //callback 1
 
-btn.addEventListener('click', function (e) {
-    console.log(e);
-  });
+// btn.addEventListener('click', function (e) {
+//     console.log(e);
+//   });
+
+//callback 2
+
+btn.addEventListener('click', function(e) {
+    e.target.style.background = 'blue';
+}
+);
