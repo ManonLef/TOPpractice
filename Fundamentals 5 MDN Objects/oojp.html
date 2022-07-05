@@ -12,7 +12,7 @@
 
     <script>
     
-    // object literal
+    // Object literal
 
         const person = {
             name: {
@@ -27,10 +27,12 @@
                 console.log(`Hi! I'm ${this.name[0]}.`);
             }
         };
-
+ 
         const myDataName = 'height';
         const myDataValue = '1.75m';
         person[myDataName] = myDataValue;
+
+    // Personal testing to test understanding   
 
         function addValue(key, value) {
             let dataName = key;
@@ -38,8 +40,16 @@
             return(person[dataName] = dataValue);
         }
 
-    // 
+    // Constructors
 
+        function createPerson(name) {
+            const obj = {};
+            obj.name = name;
+            obj.introduceYourself = function() {
+                console.log(`Hi! I'm ${this.name}.`);
+            }
+            return obj;
+        }
 
     </script>
 </html>
