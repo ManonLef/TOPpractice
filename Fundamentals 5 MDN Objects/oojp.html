@@ -28,6 +28,16 @@
             }
         };
 
+        const myDataName = 'height';
+        const myDataValue = '1.75m';
+        person[myDataName] = myDataValue;
+
+        function addValue(key, value) {
+            let dataName = key;
+            let dataValue = value;
+            return(person[dataName] = dataValue);
+        }
+
     // 
 
 
