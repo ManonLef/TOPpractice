@@ -46,6 +46,17 @@ const cat2 = {
 
 cat.greeting();
 cat2.greeting();
+
+//cat constructor:
+function cat(name) {
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+    this.greeting = function() {
+        console.log(`Hello, said ${ this.name } the ${ this.breed }.`);
+    }
+}
+
   </script>
 
 </html>
