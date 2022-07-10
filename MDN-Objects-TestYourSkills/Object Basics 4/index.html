@@ -48,14 +48,24 @@ cat.greeting();
 cat2.greeting();
 
 //cat constructor:
-function cat(name) {
+function Cat(name) {
     this.name = name;
-    this.breed = breed;
-    this.color = color;
+    this.breed = "";
+    this.color = "";
     this.greeting = function() {
         console.log(`Hello, said ${ this.name } the ${ this.breed }.`);
     }
 }
+
+const cat3 = new Cat ("Dooby");
+cat3.breed = "Meowish";
+cat3.color = "blue";
+
+const cat4 = new Cat ("Loopey");
+cat4.breed = "Sneep";
+
+cat3.greeting();
+cat4.greeting();
 
   </script>
 
