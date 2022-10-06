@@ -40,38 +40,51 @@
     <!-- Basic Controls 2 -->
     <form>
       <fieldset>
-        <legend>Who is your favorite pony?</legend>
-        <ul>
-          <li>
-            <label for="pinkie">Pinkie Pie</label>
-            <input type="radio" name="pony" id="pinkie" checked>
-          </li>
-          <li>
-            <label for="rainbow">Rainbow Dash</label>
-            <input type="radio" name="pony" id="rainbow">
-          </li>
-          <li>
-            <label for="twilight">Twilight Sparkle</label>
-            <input type="radio" name="pony" id="twilight">
-          </li>
-        </ul>
+        <fieldset>
+          <legend>Who is your favorite pony?</legend>
+          <ul>
+            <li>
+              <label for="pinkie">Pinkie Pie</label>
+              <input type="radio" name="pony" id="pinkie" checked>
+            </li>
+            <li>
+              <label for="rainbow">Rainbow Dash</label>
+              <input type="radio" name="pony" id="rainbow">
+            </li>
+            <li>
+              <label for="twilight">Twilight Sparkle</label>
+              <input type="radio" name="pony" id="twilight">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Hotdog preferences</legend>
+          <ul>
+            <li>
+              <label for="vegan">Vegan</label>
+              <input type="checkbox" name="hotdog" id="vegan" checked>
+            </li>
+            <li>
+              <label for="onions">Onions</label>
+              <input type="checkbox" name="hotdog" id="onions">
+            </li>
+          </ul>
+        </fieldset>
+        <button>Submit</button>
       </fieldset>
-      <fieldset>
-        <legend>Hotdog preferences</legend>
-        <ul>
-          <li>
-            <label for="vegan">Vegan</label>
-            <input type="checkbox" name="hotdog" id="vegan" checked>
-          </li>
-          <li>
-            <label for="onions">Onions</label>
-            <input type="checkbox" name="hotdog" id="onions">
-          </li>
-        </ul>
-      </fieldset>
-      <button>Submit</button>
     </form>
-  
+    <!-- Basic Controls 3 -->
+    <fieldset>
+      <form>
+        <ul>
+          <li>
+            <label for="gallery-img">Choose gallery images to upload</label>
+            <input type="file" name="file" id="gallery-img" accept="image/png, image/jpeg">
+          </li>
+        </ul>
+      <button>Submit</button>
+        </form>
+    </fieldset>
   </body>
 
 </html>
