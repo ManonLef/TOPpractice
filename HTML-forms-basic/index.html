@@ -120,12 +120,38 @@
             <input type="url" name="url" id="url" />
           </li>
           <li>
-            <label for="num">Number  in steps of 3.5:</label>
+            <label for="num">Number in steps of 3.5:</label>
             <input type="number" name="num" id="num" step="3.5" />
           </li>
         </ul>
         <button type="submit">All good</button>
       </fieldset>
     </form>
+    <form>
+      <fieldset>
+        <legend>slide practice</legend>
+        <label for="slide">Cha-Cha Slide:</label>
+        <input
+          type="range"
+          name="slide"
+          id="slide"
+          min="100"
+          max="50000"
+          step="100"
+          value="7000"
+        />
+        <output class="slide-output" for="slide"></output>
+      </fieldset>
+    </form>
   </body>
+  <script>
+    const slide = document.querySelector("#slide");
+    const output = document.querySelector(".slide-output");
+
+    output.textContent = slide.value;
+
+    slide.addEventListener("input", () => {
+      output.textContent = slide.value;
+    });
+  </script>
 </html>
