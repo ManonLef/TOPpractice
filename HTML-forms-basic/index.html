@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Basic controls: Task 1</title>
     <style>
       body {
@@ -25,11 +25,11 @@
         <ul>
           <li>
             <label for="user_id">User ID</label>
-            <input type="text" name="user_id" id="user_id">
+            <input type="text" name="user_id" id="user_id" />
           </li>
           <li>
             <label for="pw">Password</label>
-            <input type="password" name="pw" id="pw">
+            <input type="password" name="pw" id="pw" />
           </li>
           <li>
             <button type="submit">Log in</button>
@@ -45,15 +45,21 @@
           <ul>
             <li>
               <label for="pinkie">Pinkie Pie</label>
-              <input type="radio" name="pony" id="pinkie" value="pinkie" checked>
+              <input
+                type="radio"
+                name="pony"
+                id="pinkie"
+                value="pinkie"
+                checked
+              />
             </li>
             <li>
               <label for="rainbow">Rainbow Dash</label>
-              <input type="radio" name="pony" id="rainbow" value="rainbow">
+              <input type="radio" name="pony" id="rainbow" value="rainbow" />
             </li>
             <li>
               <label for="twilight">Twilight Sparkle</label>
-              <input type="radio" name="pony" id="twilight" value="twilight">
+              <input type="radio" name="pony" id="twilight" value="twilight" />
             </li>
           </ul>
         </fieldset>
@@ -62,11 +68,17 @@
           <ul>
             <li>
               <label for="vegan">Vegan</label>
-              <input type="checkbox" name="hotdog" id="vegan" value="vegan" checked>
+              <input
+                type="checkbox"
+                name="hotdog"
+                id="vegan"
+                value="vegan"
+                checked
+              />
             </li>
             <li>
               <label for="onions">Onions</label>
-              <input type="checkbox" name="hotdog" id="onions" value="onions">
+              <input type="checkbox" name="hotdog" id="onions" value="onions" />
             </li>
           </ul>
         </fieldset>
@@ -79,12 +91,41 @@
         <ul>
           <li>
             <label for="gallery-img">Choose gallery images to upload</label>
-            <input type="file" name="file" id="gallery-img" accept="image/png, image/jpeg" multiple>
+            <input
+              type="file"
+              name="file"
+              id="gallery-img"
+              accept="image/png, image/jpeg"
+              multiple
+            />
           </li>
         </ul>
-      <button>Submit</button>
-        </form>
+        <button>Submit</button>
+      </form>
     </fieldset>
+    <!-- practice on HTML types -->
+    <form>
+      <fieldset>
+        <ul>
+          <li>
+            <label for="practice-search">Search: </label>
+            <input type="search" name="search" id="practice-search" />
+          </li>
+          <li>
+            <label for="tel">Tel:</label>
+            <input type="tel" name="tel" id="tel" />
+          </li>
+          <li>
+            <label for="url">URL:</label>
+            <input type="url" name="url" id="url" />
+          </li>
+          <li>
+            <label for="num">Number  in steps of 3.5:</label>
+            <input type="number" name="num" id="num" step="3.5" />
+          </li>
+        </ul>
+        <button type="submit">All good</button>
+      </fieldset>
+    </form>
   </body>
-
 </html>
