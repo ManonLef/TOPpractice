@@ -1,54 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- HTML controls 1 -->
-  <form>
-    <h2>Edit your preferences</h2>
-    <ul>
-      <li>
-        <label for="e-mail">Email</label>
-        <input type="email" name="mail" id="e-mail">
-      </li>
-      <li>
-        <label for="website">Website</label>
-        <input type="url" name="website" id="website">
-      </li>
-      <li>
-        <label for="phone">Phone number</label>
-        <input type="tel" name="tel" id="phone">
-      </li>
-      <li>
-        <label for="fave-color">Favorite color</label>
-        <input type="color" name="pick" id="fave-color">
-      </li>
-      <li>
-        <button>Update preferences</button>
-      </li>
-    </ul>
-  </form>
-  <!-- HTML controls 2 -->
-  <form>
-    <ul>
-      <li>
-        <label for="max-invite">Select maximum number of invitations</label>
-        <input type="range" name="invitees" id="max-invite" min="1" max="30" value="10">
-        <output for="max-invite" class="max-invite">10</output>
-      </li>
-      <li>
-        <button>Submit</button>
-      </li>
-    </ul>
-  </form>
-      
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTML controls 1 -->
+    <form>
+      <h2>Edit your preferences</h2>
+      <ul>
+        <li>
+          <label for="e-mail">Email</label>
+          <input type="email" name="mail" id="e-mail" />
+        </li>
+        <li>
+          <label for="website">Website</label>
+          <input type="url" name="website" id="website" />
+        </li>
+        <li>
+          <label for="phone">Phone number</label>
+          <input type="tel" name="tel" id="phone" />
+        </li>
+        <li>
+          <label for="fave-color">Favorite color</label>
+          <input type="color" name="pick" id="fave-color" />
+        </li>
+        <li>
+          <button>Update preferences</button>
+        </li>
+      </ul>
+    </form>
+    <!-- HTML controls 2 -->
+    <form>
+      <ul>
+        <li>
+          <label for="max-invite">Select maximum number of invitations</label>
+          <input
+            type="range"
+            name="invitees"
+            id="max-invite"
+            min="1"
+            max="30"
+            value="10"
+          />
+          <output for="max-invite" class="invite-output">10</output>
+        </li>
+        <li>
+          <button>Submit</button>
+        </li>
+      </ul>
+    </form>
+  </body>
 
 <script>
-  
+  const invite = document.querySelector("#max-invite")
+  const output = document.querySelector(".invite-output")
+
+  output.textContent = invite.value
+
+  invite.addEventListener("input", () => {
+    output.textContent = invite.value
+  })
 </script>
+
+</html>
+
