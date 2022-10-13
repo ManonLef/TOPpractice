@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Postcard example</title>
     <style>
+      @font-face {
+        font-family: "journalregular";
+        src: url("journal-webfont.woff2") format("woff2"),
+          url("journal-webfont.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
 
+      @font-face {
+        font-family: "momstypewriterregular";
+        src: url("momt___-webfont.woff2") format("woff2"),
+          url("momt___-webfont.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      
     </style>
   </head>
 
-<body>
-  <form>
-    <h1>to: Mozilla</h1>
+  <body>
+    <form>
+      <h1>to: Mozilla</h1>
 
-    <div id="from">
-      <label for="name">from:</label>
-      <input type="text" name="user_name" id="name">
-    </div>
+      <div id="from">
+        <label for="name">from:</label>
+        <input type="text" name="user_name" id="name" />
+      </div>
 
-    <div id="reply">
-      <label for="mail">reply:</label>
-      <input type="email" name="user_email" id="mail">
-    </div>
-    
-    <div id="message">
-      <label for="msg">Your message:</label>
-      <textarea name="user_message" id="msg"></textarea>
-    </div>
+      <div id="reply">
+        <label for="mail">reply:</label>
+        <input type="email" name="user_email" id="mail" />
+      </div>
 
-    <div class="button">
-      <button type="submit">Send your message</button>
-    </div>
-    
-  </form>
-</body>
+      <div id="message">
+        <label for="msg">Your message:</label>
+        <textarea name="user_message" id="msg"></textarea>
+      </div>
 
+      <div class="button">
+        <button type="submit">Send your message</button>
+      </div>
+    </form>
+  </body>
 </html>
