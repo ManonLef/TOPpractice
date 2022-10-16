@@ -5,25 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      span {
-        display: inline-block;
-        background: red;
-      }
-
-      input[type="checkbox"] {
-        width: 100px;
-        height: 100px;
-      }
     </style>
     <title>Document</title>
   </head>
   <body>
-    <label
-      ><span><input type="checkbox" name="q5" value="true" /></span> True</label
-    >
-    <label
-      ><span><input type="checkbox" name="q5" value="false" /></span>
-      False</label
-    >
+    <form>
+      <fieldset>
+        <legend>Fruit Preferences</legend>
+
+        <p>
+          <label>
+            <input type="checkbox" name="fruit" id="cherry">
+            I like cherry
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="fruit" id="banana" disabled>
+            I can't like banana
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="fruit" id="strawberry">
+            I like strawberry
+          </label>
+        </p>
+      </fieldset>
+    </form>
   </body>
 </html>
