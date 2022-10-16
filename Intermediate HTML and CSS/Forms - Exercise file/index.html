@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      input[type="search"] {
+        background-color: bisque;
+        border: 1px solid black;
+        border-radius: 20px;
+      }
+    </style>
   </head>
   <body>
     
@@ -189,5 +196,8 @@
     <p>
       Heat the oven to <meter min="200" max="500" value="350">350 degrees</meter>.
     </p>
+    <!-- https://developer.mozilla.org/en-US/docs/Learn/Forms/Advanced_form_styling test with search -->
+    <label for="search">search</label>
+    <input type="search" name="search" id="search">
   </body>
 </html>
