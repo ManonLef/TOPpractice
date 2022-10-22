@@ -39,7 +39,9 @@
       li {
         list-style-type: none;
         display: flex;
+        flex-direction: row-reverse;
         align-items: center;
+        justify-content: left;
         gap: 10px;
       }
 
@@ -52,16 +54,16 @@
         <legend>Who is your favorite pony?</legend>
         <ul>
           <li>
-            <input type="radio" id="pinkie" name="pony" value="pinkie">
             <label for="pinkie">Pinkie Pie</label>
+            <input type="radio" id="pinkie" name="pony" value="pinkie">
           </li>
           <li>
-            <input type="radio" id="rainbow" name="pony" value="rainbow">
             <label for="rainbow">Rainbow Dash</label>
+            <input type="radio" id="rainbow" name="pony" value="rainbow">
           </li>
           <li>
-            <input type="radio" id="twilight" name="pony" value="twilight">
             <label for="twilight">Twilight Sparkle</label>
+            <input type="radio" id="twilight" name="pony" value="twilight">
           </li>
         </ul>
       </fieldset>
