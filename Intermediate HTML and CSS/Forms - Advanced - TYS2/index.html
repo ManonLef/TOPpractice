@@ -29,7 +29,15 @@
         width: 15px;
         height: 15px;
         border: 1px solid gray;
-        background-color: lightgrey;
+        border-radius: 10px;
+        background-color: rgb(244, 244, 244);
+      }
+      input[type="radio"]:checked {
+        background-color: rgb(240, 149, 194);
+      }
+
+      li {
+        list-style-type: none;
       }
 
     </style>
@@ -41,16 +49,16 @@
         <legend>Who is your favorite pony?</legend>
         <ul>
           <li>
-            <label for="pinkie">Pinkie Pie</label>
             <input type="radio" id="pinkie" name="pony" value="pinkie">
+            <label for="pinkie">Pinkie Pie</label>
           </li>
           <li>
-            <label for="rainbow">Rainbow Dash</label>
             <input type="radio" id="rainbow" name="pony" value="rainbow">
+            <label for="rainbow">Rainbow Dash</label>
           </li>
           <li>
-            <label for="twilight">Twilight Sparkle</label>
             <input type="radio" id="twilight" name="pony" value="twilight">
+            <label for="twilight">Twilight Sparkle</label>
           </li>
         </ul>
       </fieldset>
