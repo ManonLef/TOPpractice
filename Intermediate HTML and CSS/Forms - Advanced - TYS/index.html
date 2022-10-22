@@ -37,6 +37,15 @@
         outline: 1px solid pink;
         outline-offset: 1px;
       }
+/* flexing */
+      form {
+        display: flex;
+        align-items: center;
+      }
+
+      .icon {
+        margin-left: -20px;
+      }
 
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,8 +54,8 @@
   <body>
     <form>
       <input type="search" name="search" id="search" aria-label="Search our site">
-      <div>
-        
+      <div class="icon">
+        <img src="https://raw.githubusercontent.com/mdn/learning-area/main/html/forms/tasks/advanced-styling/search-24px.png" alt="search-icon" width="15px">
       </div>
     </form>
   </body>
