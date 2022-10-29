@@ -134,3 +134,10 @@ body {
 .legacy-form-row input[type='radio'] {
   float: left;
 }
+
+.form-row select {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;            /* This won't work in Chrome or Safari */
+  -webkit-appearance: none;   /* This will make it work */
+}
