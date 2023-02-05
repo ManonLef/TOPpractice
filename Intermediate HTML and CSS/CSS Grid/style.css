@@ -4,21 +4,39 @@ body {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
+  display: inline-grid;
+  grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+  background-color: lightblue; 
 }
 
-.item {
-  background-color: pink;
-  border: 1px solid purple;
+.room {
+  border: 1px solid;
+  font-size: 50%;
   text-align: center;
 }
 
-.first-row {
-/*   background-color: pink; */
+#living-room {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
-.last-column {
-/*   background-color: lightblue; */
+#kitchen {
+  grid-column: 4/6;
+  grid-row: 3/6;
+}
+
+#bedroom {
+  grid-column: 2/4;
+  grid-row: 3/5;
+}
+
+#closet {
+  grid-column: 2/4;
+}
+
+#bathroom {
+  grid-row-start: 3;
+  grid-row-end: 6;
 }
