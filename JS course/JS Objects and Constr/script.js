@@ -31,3 +31,9 @@ function Player(name, marker) {
 
 const playerOne = new Player("Steve", "X")
 const playerTwo = new Player("Manon", "<3")
+
+// Prototypes
+
+Player.prototype.status = function() {
+  return this.name + " is currently offline";
+}
