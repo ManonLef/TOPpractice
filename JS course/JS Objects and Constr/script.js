@@ -74,8 +74,6 @@ console.log(aBanana.showNameAndColor()); // I am a Banana and my color is yellow
 
 //showNameAndColor method was inherited by the aBanana object even though it was defined all the way up the prototype chain on the Plant.prototype object.
 
-
-
 // PRACTICE CODE Object.prototype Properties Inherited by all Objects
 
 function People() {
@@ -98,33 +96,59 @@ console.log(famousPerson.athlete); // Tiger Woods
 // In this example, the search proceeds up the prototype chain and find the toString method on Object.prototype, from which the Fruit object inherited—all objects ultimately inherits from Object.prototype as we have noted before.
 console.log(famousPerson.toString()); // [object Object]
 
-
-// exercises from 
+// exercises from
 //
 // https://javascript.info/prototype-inheritance
 
 // EXERCISE 1
 
 let animal = {
-  jumps: null
+  jumps: null,
 };
 let rabbit = {
   __proto__: animal,
-  jumps: true
+  jumps: true,
 };
 
-alert( rabbit.jumps ); // ? (1)
+// alert(rabbit.jumps); // ? (1)
 
-delete rabbit.jumps;
+// delete rabbit.jumps;
 
-alert( rabbit.jumps ); // ? (2)
+// alert(rabbit.jumps); // ? (2)
 
-delete animal.jumps;
+// delete animal.jumps;
 
-alert( rabbit.jumps ); // ? (3)
+// alert(rabbit.jumps); // ? (3)
 
 // 1 true v
 // 2 null
 // 3 undefined?
 
 //correct
+
+// EXERCISE 2 SEARCHING ALGORITHM
+
+let head = {
+  glasses: 1,
+};
+
+let table = {
+  pen: 3,
+  __proto__: head,
+};
+
+let bed = {
+  sheet: 1,
+  pillow: 2,
+  __proto__: table,
+};
+
+let pockets = {
+  money: 2000,
+  __proto__: bed,
+};
+
+// 1. Use __proto__ to assign prototypes in a way that any property lookup will follow the path: pockets → bed → table → head. For instance, pockets.pen should be 3 (found in table), and bed.glasses should be 1 (found in head).
+// 2. Answer the question: is it faster to get glasses as pockets.glasses or head.glasses? Benchmark if needed.
+
+// 1. add proto up the chain
