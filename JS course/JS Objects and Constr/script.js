@@ -102,13 +102,13 @@ console.log(famousPerson.toString()); // [object Object]
 
 // EXERCISE 1
 
-let animal = {
-  jumps: null,
-};
-let rabbit = {
-  __proto__: animal,
-  jumps: true,
-};
+// let animal = {
+//   jumps: null,
+// };
+// let rabbit = {
+//   __proto__: animal,
+//   jumps: true,
+// };
 
 // alert(rabbit.jumps); // ? (1)
 
@@ -155,3 +155,20 @@ let pockets = {
 // 2. FALSE head.glasses because it doesn't have to travel up the inheritance chain to search for glasses and will find it in its own properties.
 // 2. CORRECT ANSWER  In modern engines, performance-wise, there’s no difference whether we take a property from an object or its prototype. They remember where the property was found and reuse it in the next request.
 // For instance, for pockets.glasses they remember where they found glasses (in head), and next time will search right there. They are also smart enough to update internal caches if something changes, so that optimization is safe.
+
+// EXERCISE 3 WHERE DOES IT WRITE?
+
+let animal = {
+  eat() {
+    this.full = true;
+  }
+};
+
+let rabbit = {
+  __proto__: animal
+};
+
+rabbit.eat();
+
+// We have rabbit inheriting from animal. If we call rabbit.eat(), which object receives the full property: animal or rabbit?
+// My answer: the rabbit. the eat method will be found in the animal prototype but will be executed with this/rabbit 
