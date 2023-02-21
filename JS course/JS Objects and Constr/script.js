@@ -195,10 +195,12 @@ let lazy = {
 
 // This one found the food
 speedy.eat("apple");
-alert(speedy.stomach); // apple
+// alert(speedy.stomach); // apple
 
-// This one also has it, why? fix please.
-alert(lazy.stomach); // apple
+// // This one also has it, why? fix please.
+// alert(lazy.stomach); // apple
+
+//-----//
 
 // We have two hamsters: speedy and lazy inheriting from the general hamster object.
 // When we feed one of them, the other one is also full. Why? How can we fix it?
@@ -210,3 +212,26 @@ alert(lazy.stomach); // apple
 
 // My idea to Fix: this.stomach might work in hamster. I'll try that first. RESULT: it doesn't like me adding this to array so I shall look into why that is.
 // idea 2: add stomach array to speedy and lazy or return it
+
+//-----//
+
+//CONTINUED TOP LESSON CODE ALONG after reading assignment https://www.theodinproject.com/lessons/node-path-javascript-objects-and-object-constructors#the-prototype
+
+//-----//
+function Student() { 
+}
+
+Student.prototype.sayName = function() { 
+  console.log(this.name)
+}
+
+function EighthGrader(name) { 
+  this.name = name
+  this.grade = 8
+}
+
+EighthGrader.prototype = Object.create(Student.prototype) 
+
+const carl = new EighthGrader("carl")
+carl.sayName() // console.logs "carl"
+carl.grade // 8
