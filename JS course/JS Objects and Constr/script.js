@@ -97,3 +97,28 @@ console.log(famousPerson.athlete); // Tiger Woods
 
 // In this example, the search proceeds up the prototype chain and find the toString method on Object.prototype, from which the Fruit object inherited—all objects ultimately inherits from Object.prototype as we have noted before.
 console.log(famousPerson.toString()); // [object Object]
+
+
+// exercises from 
+//
+// https://javascript.info/prototype-inheritance
+
+// EXERCISE 1
+
+let animal = {
+  jumps: null
+};
+let rabbit = {
+  __proto__: animal,
+  jumps: true
+};
+
+// alert( rabbit.jumps ); // ? (1)
+
+// delete rabbit.jumps;
+
+// alert( rabbit.jumps ); // ? (2)
+
+// delete animal.jumps;
+
+// alert( rabbit.jumps ); // ? (3)
