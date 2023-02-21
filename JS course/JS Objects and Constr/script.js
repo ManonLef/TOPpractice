@@ -113,12 +113,18 @@ let rabbit = {
   jumps: true
 };
 
-// alert( rabbit.jumps ); // ? (1)
+alert( rabbit.jumps ); // ? (1)
 
-// delete rabbit.jumps;
+delete rabbit.jumps;
 
-// alert( rabbit.jumps ); // ? (2)
+alert( rabbit.jumps ); // ? (2)
 
-// delete animal.jumps;
+delete animal.jumps;
 
-// alert( rabbit.jumps ); // ? (3)
+alert( rabbit.jumps ); // ? (3)
+
+// 1 true v
+// 2 null
+// 3 undefined?
+
+//correct
