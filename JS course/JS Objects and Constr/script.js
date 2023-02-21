@@ -161,14 +161,52 @@ let pockets = {
 let animal = {
   eat() {
     this.full = true;
-  }
+  },
 };
 
 let rabbit = {
-  __proto__: animal
+  __proto__: animal,
 };
 
 rabbit.eat();
 
 // We have rabbit inheriting from animal. If we call rabbit.eat(), which object receives the full property: animal or rabbit?
-// My answer: the rabbit. the eat method will be found in the animal prototype but will be executed with this/rabbit 
+// My answer: the rabbit. the eat method will be found in the animal prototype but will be executed with this/rabbit
+
+//EXERCISE 4 Why are both hamsters full?
+
+let hamster = {
+  // stomach: [],
+
+  eat(food) {
+    this.stomach.push(food);
+  },
+};
+
+let speedy = {
+  stomach: [],
+  __proto__: hamster,
+};
+
+let lazy = {
+  stomach: [],
+  __proto__: hamster,
+};
+
+// This one found the food
+speedy.eat("apple");
+alert(speedy.stomach); // apple
+
+// This one also has it, why? fix please.
+alert(lazy.stomach); // apple
+
+// We have two hamsters: speedy and lazy inheriting from the general hamster object.
+// When we feed one of them, the other one is also full. Why? How can we fix it?
+
+// My Answer:
+// speedy.eat apple will find a method in hamster and execute the speedy.eat method which then pushed the fed food to the stomach array in hamster.
+// When you alert speedy.stomach, it will not find the property in speedy, but it will in hamster, and that stomach has an apple.
+// Same happends for lazy since the stomach property will not be found in lazy, it will travel up to the hamster prototype and find a stomach with an apple in it.
+
+// My idea to Fix: this.stomach might work in hamster. I'll try that first. RESULT: it doesn't like me adding this to array so I shall look into why that is.
+// idea 2: add stomach array to speedy and lazy or return it
