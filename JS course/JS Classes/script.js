@@ -27,6 +27,7 @@ class Habits {
   description;
   notes;
   category = "General";
+  subCategory;
 
   get description() {
     return `Description: ${this.description}`;
@@ -39,23 +40,33 @@ class Habits {
     return this.category;
   }
 
-  constructor(generalHabit) {
-    this.name = generalHabit;
+  get subCategory() {
+    return this.subCategory;
   }
+
 }
 
 class Hygiene extends Habits {
   constructor(hygieneHabit) {
     super();
-    this.subCategory = "Health";
-    this.habit = hygieneHabit;
+    hygieneHabit;
     this.goal
+    this.subCategory = "Health";
   }
 
+  get habit() {
+    return `Habit: ${hygieneHabit}`;
+  }
+  set habit(habit) {
+    hygieneHabit = habit
+  }
 
+  get subCategory() {
+    return `${subCategory}`
+  }
 
   get hierarchy() {
-    return super.category + " > " + this.subCategory;
+    return this.category + " > " + this.subCategory;
   }
 }
 
