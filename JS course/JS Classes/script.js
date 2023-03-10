@@ -1,21 +1,27 @@
-class Living {
-  #details
-
-  constructor(detail) {
-   this.#details = detail
+class Task {
+  constructor(task) {
+    this.task = task;
+    const completed = false;
+    const due = ""
   }
 
-
-  get dets() {
-    return `this is a ${this.#details}`;
+  get taskDescription() {
+    return `task: ${this.task}`
   }
 
-  set dets(msg) {
-     return this.#details = msg
+  set taskDescription(description) {
+    return this.task = description
+  }
+
+  set dueDate(date) {
+    return this.due = date
+  }
+
+  set complete(caseS) {
+    return this.completed = caseS;
+  }
+
+  set random(randomField) {
+    return this.rando = randomField;
   }
 }
-
-const human = new Living("human")
-console.log(human.dets);
-console.log(human)
-
