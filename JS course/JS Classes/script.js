@@ -1,71 +1,21 @@
-class Habits {
-  constructor(nom) {
-    this.nom = nom
+class Living {
+  #details
+
+  constructor(detail) {
+   this.#details = detail
   }
 
-}
 
-class Hygiene extends Habits {
-
-  category() {
-    console.log(`General > ${this.nom}`)
+  get dets() {
+    return `this is a ${this.#details}`;
   }
 
-  constructor(subcat) {
-    this.subcat = subcat
-  }
-
-  category() {
-    
+  set dets(msg) {
+     return this.#details = msg
   }
 }
 
-const brushTeeth = new Hygiene("Brush Teeth");
-brushTeeth.category();
-// class Habits {
-//   description;
-//   notes;
-//   category = "General";
-//   subCategory;
+const human = new Living("human")
+console.log(human.dets);
+console.log(human)
 
-//   get description() {
-//     return `Description: ${this.description}`;
-//   }
-//   set description(description) {
-//     this.description = description;
-//   }
-
-//   get category() {
-//     return this.category;
-//   }
-
-//   get subCategory() {
-//     return this.subCategory;
-//   }
-// }
-
-// class Hygiene extends Habits {
-//   constructor(hygieneHabit) {
-//     super();
-//     hygieneHabit;
-//     this.goal;
-//     this.subCategory = "Health";
-//   }
-
-//   get habit() {
-//     return `Habit: ${hygieneHabit}`;
-//   }
-//   set habit(habit) {
-//     hygieneHabit = habit;
-//   }
-
-//   get subCategory() {
-//     return `${subCategory}`;
-//   }
-
-//   get hierarchy() {
-//     return this.category + " > " + this.subCategory;
-//   }
-// }
-
-// const brushTeeth = new Hygiene("brush teeth");
