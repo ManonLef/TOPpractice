@@ -8,7 +8,7 @@
 
 const images = document.querySelectorAll("img");
 let currentImage = images[0]
-let currentIndex = "0"
+let currentIndex = 0
 const next = document.querySelector(".right-arrow");
 const previous = document.querySelector(".left-arrow");
 
@@ -85,3 +85,4 @@ function changeImage() {
   currentIndex = index
 }
 
+// next up: simplify with circle render check based on active status
