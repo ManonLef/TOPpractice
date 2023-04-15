@@ -1,11 +1,15 @@
 .carousel {
-  border: 1px solid red;
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
 }
 
+.left-arrow,
+.right-arrow {
+  background-color: pink;
+
+}
+
 .image {
-  border: 1px solid red;
   width: auto;
   display: flex;
   justify-content: space-around;

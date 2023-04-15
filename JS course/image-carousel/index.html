@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <title>Image carousel</title>
-</head>
-<body>
-  <div class="carousel">
-    <!-- arrow -->
-    <div class="left-arrow">previous</div>
-    <!-- container -->
-    <div class="img-container">
-      <div class="image">
-        <img src="./images/pexels-anna-shvets-5682053.jpg" alt="person painting on a canvas">
-        <img src="./images/pexels-kampus-production-8036833.jpg" alt="person painting on a canvas" hidden>
-        <img src="./images/pexels-michael-quaynor-13618967.jpg" alt="person painting on a canvas" hidden>
-        <img src="./images/pexels-sena-aykut-7647455.jpg" alt="person painting on a canvas" hidden>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Image carousel</title>
+  </head>
+  <body>
+    <div class="carousel">
+      <!-- arrow -->
+      <div class="left-arrow">previous</div>
+      <!-- container -->
+      <div class="img-container">
+        <div class="image">
+          <img
+            class="active"
+            src="./images/pexels-anna-shvets-5682053.jpg"
+            alt="person painting on a canvas" />
+          <img
+            src="./images/pexels-kampus-production-8036833.jpg"
+            alt="person painting on a canvas"
+            hidden />
+          <img
+            src="./images/pexels-michael-quaynor-13618967.jpg"
+            alt="person painting on a canvas"
+            hidden />
+          <img
+            src="./images/pexels-sena-aykut-7647455.jpg"
+            alt="person painting on a canvas"
+            hidden />
+        </div>
       </div>
+      <!-- arrow -->
+      <div class="right-arrow">next</div>
     </div>
-    <!-- arrow -->
-    <div class="right-arrow">next</div>
-  </div>
-</body>
+  </body>
 </html>
