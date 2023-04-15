@@ -1,6 +1,7 @@
 .carousel {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: 4fr 1fr;
 }
 
 .left-arrow,
@@ -19,4 +20,12 @@
 
 img {
   max-height: 300px;
+}
+
+.circles {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  grid-area: 2/2/3/3;
+  justify-content: center;
 }

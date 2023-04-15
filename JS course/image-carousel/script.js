@@ -40,3 +40,32 @@ function displayPrevious() {
     currentImage = previousImage;
   }
 }
+
+// Add in some navigation dots at the bottom of the slides.
+// Make a horizontal series of empty circles with CSS immediately below the slideshow.
+// Each circle represents a slide, so whenever a new slide is activated,
+// its corresponding circle gets filled in so you can tell where in the show you are.
+// Make each circle link to that particular slide, so you can click on the circle and it will jump to that slide.
+
+const images = document.querySelectorAll("img");
+const circles = document.querySelector(".circles"); // ●
+
+function addCircles() {
+  console.log(images);
+  for (let i = 0; i < images.length; i++) {
+    images[i].setAttribute("data-value", i);
+
+    const newCircle = document.createElement("div");
+    newCircle.setAttribute("data-value", i)
+    newCircle.textContent ="○"
+    circles.appendChild(newCircle)
+
+    newCircle.addEventListener("click", changeImage)
+  }
+}
+
+function changeImage() {
+
+}
+
+addCircles();
