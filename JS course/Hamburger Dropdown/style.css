@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-container {
+  background-color: pink;
+  padding: 1em;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+li {
+  list-style: none;
+  padding: 1em;
+}
+
+li:hover {
+  background-color: rgb(255, 232, 236);
+}
