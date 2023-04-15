@@ -8,21 +8,35 @@
 
 let currentImage = document.querySelector(".active");
 const next = document.querySelector(".right-arrow");
+const previous = document.querySelector(".left-arrow");
 
 next.addEventListener("click", displayNext);
+previous.addEventListener("click", displayPrevious);
 
 function displayNext() {
-  const activeImage = document.querySelector(".active");
-  
-  if (activeImage.nextElementSibling) {
-    const nextImage = activeImage.nextElementSibling;
+  if (currentImage.nextElementSibling) {
+    const nextImage = currentImage.nextElementSibling;
 
     nextImage.className = "active";
-    activeImage.className = "";
+    currentImage.className = "";
 
-    activeImage.setAttribute("hidden", true);
+    currentImage.setAttribute("hidden", true);
     nextImage.removeAttribute("hidden");
 
     currentImage = nextImage;
+  }
+}
+
+function displayPrevious() {
+  if (currentImage.previousElementSibling) {
+    const previousImage = currentImage.previousElementSibling;
+
+    previousImage.className = "active";
+    currentImage.className = "";
+
+    currentImage.setAttribute("hidden", true);
+    previousImage.removeAttribute("hidden");
+
+    currentImage = previousImage;
   }
 }
