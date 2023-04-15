@@ -8,6 +8,7 @@
 
 const images = document.querySelectorAll("img");
 let currentImage = images[0]
+let currentIndex = "0"
 const next = document.querySelector(".right-arrow");
 const previous = document.querySelector(".left-arrow");
 
@@ -25,6 +26,7 @@ function displayNext() {
     nextImage.removeAttribute("hidden");
 
     currentImage = nextImage;
+    currentIndex += 1
   }
 }
 
@@ -39,6 +41,7 @@ function displayPrevious() {
     previousImage.removeAttribute("hidden");
 
     currentImage = previousImage;
+    currentIndex -= 1
   }
 }
 
@@ -49,7 +52,6 @@ function displayPrevious() {
 // Make each circle link to that particular slide, so you can click on the circle and it will jump to that slide.
 
 const circleContainer = document.querySelector(".circles"); // ●
-
 
 function addCircles() {
   console.log(images);
@@ -66,13 +68,20 @@ function addCircles() {
   }
 }
 
+addCircles();
+const circles = document.querySelectorAll(".circle");
+circles[currentIndex].textContent = "●" 
+
 function changeImage() {
-  console.log(this.getAttribute("data-value"))
   const index = this.getAttribute("data-value")
 
   currentImage.setAttribute("hidden", true)
   currentImage = images[index]
+
   images[index].removeAttribute("hidden")
+  circles[currentIndex].textContent = "○"
+  circles[index].textContent = "●"
+
+  currentIndex = index
 }
 
-addCircles();
