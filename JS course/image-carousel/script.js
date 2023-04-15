@@ -6,7 +6,8 @@
 // hide this image
 // display next image
 
-let currentImage = document.querySelector(".active");
+const images = document.querySelectorAll("img");
+let currentImage = images[0]
 const next = document.querySelector(".right-arrow");
 const previous = document.querySelector(".left-arrow");
 
@@ -47,8 +48,8 @@ function displayPrevious() {
 // its corresponding circle gets filled in so you can tell where in the show you are.
 // Make each circle link to that particular slide, so you can click on the circle and it will jump to that slide.
 
-const images = document.querySelectorAll("img");
-const circles = document.querySelector(".circles"); // ●
+const circleContainer = document.querySelector(".circles"); // ●
+
 
 function addCircles() {
   console.log(images);
@@ -57,15 +58,21 @@ function addCircles() {
 
     const newCircle = document.createElement("div");
     newCircle.setAttribute("data-value", i)
+    newCircle.className ="circle"
     newCircle.textContent ="○"
-    circles.appendChild(newCircle)
+    circleContainer.appendChild(newCircle)
 
     newCircle.addEventListener("click", changeImage)
   }
 }
 
 function changeImage() {
+  console.log(this.getAttribute("data-value"))
+  const index = this.getAttribute("data-value")
 
+  currentImage.setAttribute("hidden", true)
+  currentImage = images[index]
+  images[index].removeAttribute("hidden")
 }
 
 addCircles();
