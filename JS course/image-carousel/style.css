@@ -1,0 +1,16 @@
+.carousel {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+.image {
+  border: 1px solid red;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+img {
+  max-height: 300px;
+}
