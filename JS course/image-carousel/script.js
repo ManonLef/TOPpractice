@@ -12,14 +12,17 @@ let currentIndex = 0;
 const next = document.querySelector(".right-arrow");
 const previous = document.querySelector(".left-arrow");
 
+let fiveSec;
+
 next.addEventListener("click", displayNext);
 previous.addEventListener("click", displayPrevious);
 
 function displayNext() {
-  if (currentImage.nextElementSibling) {
-    const newIndex = currentIndex + 1;
-    const nextImage = images[newIndex];
-    circles[currentIndex].textContent = "⚪";
+  clearTimeout(fiveSec);
+  if (currentIndex < (images.length -1)) {
+    currentIndex++;
+    const nextImage = images[currentIndex];
+    circles[currentIndex - 1].textContent = "⚪";
 
     nextImage.className = "active";
     currentImage.className = "";
@@ -28,17 +31,20 @@ function displayNext() {
     nextImage.removeAttribute("hidden");
 
     currentImage = nextImage;
-    currentIndex = newIndex;
 
-    circles[newIndex].textContent = "⚫";
+    circles[currentIndex].textContent = "⚫";
+    console.log(currentIndex);
+    console.log(currentImage);
   }
+  fiveSecSlider();
 }
 
 function displayPrevious() {
+  clearTimeout(fiveSec);
   if (currentImage.previousElementSibling) {
-    const newIndex = currentIndex - 1;
-    const previousImage = images[newIndex];
-    circles[currentIndex].textContent = "⚪";
+    currentIndex--;
+    const previousImage = images[currentIndex];
+    circles[currentIndex + 1].textContent = "⚪";
 
     previousImage.className = "active";
     currentImage.className = "";
@@ -47,10 +53,10 @@ function displayPrevious() {
     previousImage.removeAttribute("hidden");
 
     currentImage = previousImage;
-    currentIndex = newIndex;
 
-    circles[newIndex].textContent = "⚫";
+    circles[currentIndex].textContent = "⚫";
   }
+  fiveSecSlider();
 }
 
 // Add in some navigation dots at the bottom of the slides.
@@ -62,7 +68,6 @@ function displayPrevious() {
 const circleContainer = document.querySelector(".circles"); // ●
 
 function addCircles() {
-  console.log(images);
   for (let i = 0; i < images.length; i++) {
     images[i].setAttribute("data-value", i);
 
@@ -81,39 +86,48 @@ const circles = document.querySelectorAll(".circle");
 circles[currentIndex].textContent = "⚫";
 
 function changeImage() {
-  const index = this.getAttribute("data-value");
+  clearTimeout(fiveSec);
+  const index = parseFloat(this.getAttribute("data-value"));
 
   currentImage.setAttribute("hidden", true);
+  currentImage.className = "";
+
   currentImage = images[index];
+  currentImage.className = "active";
 
   images[index].removeAttribute("hidden");
   circles[currentIndex].textContent = "⚪";
   circles[index].textContent = "⚫";
 
   currentIndex = index;
+  console.log(currentIndex);
+  console.log(currentImage);
+  fiveSecSlider();
 }
 
 function fiveSecSlider() {
-  setTimeout(() => {
-    if (currentImage.nextElementSibling) {
+  fiveSec = setTimeout(() => {
+    if (currentIndex < images.length - 1) {
       displayNext();
     } else {
       const firstImg = images[0];
       circles[currentIndex].textContent = "⚪";
-  
-      firstImg.className = "active";
+
       currentImage.className = "";
-  
+
       currentImage.setAttribute("hidden", true);
       firstImg.removeAttribute("hidden");
-  
+
       currentImage = firstImg;
+      currentImage.className = "active";
       currentIndex = 0;
-  
-      circles[0].textContent = "⚫";  
+
+      circles[0].textContent = "⚫";
+      fiveSecSlider();
+      console.log(currentIndex);
+      console.log(currentImage);
     }
-    fiveSecSlider()
-  }, 2000);
+  }, 5000);
 }
 
-fiveSecSlider()
+fiveSecSlider();
