@@ -36,7 +36,9 @@ function displayNext() {
 
 function displayPrevious() {
   if (currentImage.previousElementSibling) {
-    const previousImage = currentImage.previousElementSibling;
+    const newIndex = currentIndex - 1
+    const previousImage = images[newIndex]
+    circles[currentIndex].textContent = "⚪"
 
     previousImage.className = "active";
     currentImage.className = "";
@@ -45,7 +47,9 @@ function displayPrevious() {
     previousImage.removeAttribute("hidden");
 
     currentImage = previousImage;
-    currentIndex -= 1
+    currentIndex = newIndex
+
+    circles[newIndex].textContent = "⚫"  
   }
 }
 
