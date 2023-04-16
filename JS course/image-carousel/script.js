@@ -17,7 +17,9 @@ previous.addEventListener("click", displayPrevious);
 
 function displayNext() {
   if (currentImage.nextElementSibling) {
-    const nextImage = currentImage.nextElementSibling;
+    const newIndex = currentIndex + 1
+    const nextImage = images[newIndex]
+    circles[currentIndex].textContent = "⚪"
 
     nextImage.className = "active";
     currentImage.className = "";
@@ -26,7 +28,9 @@ function displayNext() {
     nextImage.removeAttribute("hidden");
 
     currentImage = nextImage;
-    currentIndex += 1
+    currentIndex = newIndex
+
+    circles[newIndex].textContent = "⚫"  
   }
 }
 
