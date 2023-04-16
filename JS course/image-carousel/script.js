@@ -7,8 +7,8 @@
 // display next image
 
 const images = document.querySelectorAll("img");
-let currentImage = images[0]
-let currentIndex = 0
+let currentImage = images[0];
+let currentIndex = 0;
 const next = document.querySelector(".right-arrow");
 const previous = document.querySelector(".left-arrow");
 
@@ -17,9 +17,9 @@ previous.addEventListener("click", displayPrevious);
 
 function displayNext() {
   if (currentImage.nextElementSibling) {
-    const newIndex = currentIndex + 1
-    const nextImage = images[newIndex]
-    circles[currentIndex].textContent = "⚪"
+    const newIndex = currentIndex + 1;
+    const nextImage = images[newIndex];
+    circles[currentIndex].textContent = "⚪";
 
     nextImage.className = "active";
     currentImage.className = "";
@@ -28,17 +28,17 @@ function displayNext() {
     nextImage.removeAttribute("hidden");
 
     currentImage = nextImage;
-    currentIndex = newIndex
+    currentIndex = newIndex;
 
-    circles[newIndex].textContent = "⚫"  
+    circles[newIndex].textContent = "⚫";
   }
 }
 
 function displayPrevious() {
   if (currentImage.previousElementSibling) {
-    const newIndex = currentIndex - 1
-    const previousImage = images[newIndex]
-    circles[currentIndex].textContent = "⚪"
+    const newIndex = currentIndex - 1;
+    const previousImage = images[newIndex];
+    circles[currentIndex].textContent = "⚪";
 
     previousImage.className = "active";
     currentImage.className = "";
@@ -47,9 +47,9 @@ function displayPrevious() {
     previousImage.removeAttribute("hidden");
 
     currentImage = previousImage;
-    currentIndex = newIndex
+    currentIndex = newIndex;
 
-    circles[newIndex].textContent = "⚫"  
+    circles[newIndex].textContent = "⚫";
   }
 }
 
@@ -67,30 +67,53 @@ function addCircles() {
     images[i].setAttribute("data-value", i);
 
     const newCircle = document.createElement("div");
-    newCircle.setAttribute("data-value", i)
-    newCircle.className ="circle"
-    newCircle.textContent ="⚪"
-    circleContainer.appendChild(newCircle)
+    newCircle.setAttribute("data-value", i);
+    newCircle.className = "circle";
+    newCircle.textContent = "⚪";
+    circleContainer.appendChild(newCircle);
 
-    newCircle.addEventListener("click", changeImage)
+    newCircle.addEventListener("click", changeImage);
   }
 }
 
 addCircles();
 const circles = document.querySelectorAll(".circle");
-circles[currentIndex].textContent = "⚫" 
+circles[currentIndex].textContent = "⚫";
 
 function changeImage() {
-  const index = this.getAttribute("data-value")
+  const index = this.getAttribute("data-value");
 
-  currentImage.setAttribute("hidden", true)
-  currentImage = images[index]
+  currentImage.setAttribute("hidden", true);
+  currentImage = images[index];
 
-  images[index].removeAttribute("hidden")
-  circles[currentIndex].textContent = "⚪"
-  circles[index].textContent = "⚫"
+  images[index].removeAttribute("hidden");
+  circles[currentIndex].textContent = "⚪";
+  circles[index].textContent = "⚫";
 
-  currentIndex = index
+  currentIndex = index;
 }
 
-// next up: simplify with circle render check based on active status
+function fiveSecSlider() {
+  setTimeout(() => {
+    if (currentImage.nextElementSibling) {
+      displayNext();
+    } else {
+      const firstImg = images[0];
+      circles[currentIndex].textContent = "⚪";
+  
+      firstImg.className = "active";
+      currentImage.className = "";
+  
+      currentImage.setAttribute("hidden", true);
+      firstImg.removeAttribute("hidden");
+  
+      currentImage = firstImg;
+      currentIndex = 0;
+  
+      circles[0].textContent = "⚫";  
+    }
+    fiveSecSlider()
+  }, 2000);
+}
+
+fiveSecSlider()
