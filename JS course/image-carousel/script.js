@@ -1,11 +1,3 @@
-// Once you have the slider positioned properly,
-// build functions for “next” and “previous” which will advance to the next or previous slide accordingly.
-// Make the transitions smooth using simple effects.
-
-// if click on next
-// hide this image
-// display next image
-
 const images = document.querySelectorAll("img");
 let currentImage = images[0];
 let currentIndex = 0;
@@ -33,8 +25,6 @@ function displayNext() {
     currentImage = nextImage;
 
     circles[currentIndex].textContent = "⚫";
-    console.log(currentIndex);
-    console.log(currentImage);
   }
   fiveSecSlider();
 }
@@ -58,12 +48,6 @@ function displayPrevious() {
   }
   fiveSecSlider();
 }
-
-// Add in some navigation dots at the bottom of the slides.
-// Make a horizontal series of empty circles with CSS immediately below the slideshow.
-// Each circle represents a slide, so whenever a new slide is activated,
-// its corresponding circle gets filled in so you can tell where in the show you are.
-// Make each circle link to that particular slide, so you can click on the circle and it will jump to that slide.
 
 const circleContainer = document.querySelector(".circles"); // ●
 
@@ -100,8 +84,6 @@ function changeImage() {
   circles[index].textContent = "⚫";
 
   currentIndex = index;
-  console.log(currentIndex);
-  console.log(currentImage);
   fiveSecSlider();
 }
 
@@ -124,10 +106,8 @@ function fiveSecSlider() {
 
       circles[0].textContent = "⚫";
       fiveSecSlider();
-      console.log(currentIndex);
-      console.log(currentImage);
     }
-  }, 5000);
+  }, 2000);
 }
 
 fiveSecSlider();
