@@ -61,7 +61,7 @@ function addCircles() {
     const newCircle = document.createElement("div");
     newCircle.setAttribute("data-value", i)
     newCircle.className ="circle"
-    newCircle.textContent ="○"
+    newCircle.textContent ="⚪"
     circleContainer.appendChild(newCircle)
 
     newCircle.addEventListener("click", changeImage)
@@ -70,7 +70,7 @@ function addCircles() {
 
 addCircles();
 const circles = document.querySelectorAll(".circle");
-circles[currentIndex].textContent = "●" 
+circles[currentIndex].textContent = "⚫" 
 
 function changeImage() {
   const index = this.getAttribute("data-value")
@@ -79,8 +79,8 @@ function changeImage() {
   currentImage = images[index]
 
   images[index].removeAttribute("hidden")
-  circles[currentIndex].textContent = "○"
-  circles[index].textContent = "●"
+  circles[currentIndex].textContent = "⚪"
+  circles[index].textContent = "⚫"
 
   currentIndex = index
 }
