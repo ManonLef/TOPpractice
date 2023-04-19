@@ -9,12 +9,15 @@
   <title>Constraint Validation API</title>
 </head>
 <body>
-  <form>
-    <label for="mail">
-      I would like you to provide me with an email address:
-    </label>
-    <input type="email" id="mail" name="mail" />
-    <button>Submit</button>
+  <form novalidate>
+    <p>
+      <label for="mail">
+        <span>Please enter an email address:</span>
+        <input type="email" id="mail" name="mail" required minlength="8">
+        <span class="error" aria-live="polite"></span>
+      </label>
+    </p>
+    <button>submit</button>
   </form>
 </body>
 </html>
