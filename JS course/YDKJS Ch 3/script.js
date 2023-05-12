@@ -1,11 +1,11 @@
 function add(getX, getY, cb) {
   var x, y;
   //////
-  log(x);
-  log(y);
-  log(getX);
-  log(getY);
-  log(cb);
+  // log(x);
+  // log(y);
+  // log(getX);
+  // log(getY);
+  // log(cb);
   //////
   getX(function (xVal) {
     log("getting x");
@@ -40,11 +40,13 @@ function log(msg) {
 }
 
 function fetchX(cb) {
+	log("cb:" + cb)
   setTimeout(() => {
     cb(5);
   }, 500);
 }
 
-function fetchY(cb) {
-  cb(100);
+function fetchY(funcEval) {
+	log(funcEval)
+  funcEval(100);
 }
