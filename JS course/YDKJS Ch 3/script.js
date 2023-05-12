@@ -8,8 +8,8 @@ function add(getX, getY, cb) {
   log(cb);
   //////
   getX(function (xVal) {
-		log("getting x")
-		log("xval: " + xVal)
+    log("getting x");
+    log("xval: " + xVal);
     x = xVal;
     // both are ready?
     if (y != undefined) {
@@ -17,8 +17,8 @@ function add(getX, getY, cb) {
     }
   });
   getY(function (yVal) {
-		log("getting Y")
-		log("yval: " + yVal)
+    log("getting Y");
+    log("yval: " + yVal);
     y = yVal;
     // both are ready?
     if (x != undefined) {
@@ -40,11 +40,11 @@ function log(msg) {
 }
 
 function fetchX(cb) {
-	setTimeout(() => {
-		cb(5)
-	}, 500);
+  setTimeout(() => {
+    cb(5);
+  }, 500);
 }
 
 function fetchY(cb) {
-  cb(100)
+  cb(100);
 }
