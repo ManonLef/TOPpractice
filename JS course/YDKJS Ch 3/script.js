@@ -33,14 +33,14 @@ function log(msg) {
 }
 
 function fetchX(cb) {
-	log("cb:" + cb)
+  log("cb:" + cb);
   setTimeout(() => {
     cb(5);
   }, 500);
 }
 
 function fetchY(funcEval) {
-	log(funcEval)
+  log(funcEval);
   funcEval(100);
 }
 
@@ -50,12 +50,12 @@ function fetchY(funcEval) {
 
 // when the function is invoked, a call back to fetchX and fetchY gets passed, and a function as the 3rd parameter
 // the callback fetchX as parameter will be called getX in the actual add function
-// fetchX is a function that takes "cb" as an argument. 
+// fetchX is a function that takes "cb" as an argument.
 // if getX is called in the add(..), it will be getX(fuction(xVal) { x = xVal; and if y != undefined; cb(x+y)})
 // fetchX(cb) is the same as getX(function(xVal)) so function(xVal) will be the parameter cb passed to fetchX
 // fetchX(function(xVal){}) translates to:
 // without the timeout:
-// fetchX(function passed...) 
+// fetchX(function passed...)
 // function(5)
 // back to the getX function passed:
 // function(5) {
@@ -63,6 +63,17 @@ function fetchY(funcEval) {
 //  if ( y != undefined ) {
 //     cb( 5 + y )
 //    // cb being the passed function that will console.log(sum)
-// } 
 // }
 // }
+// }
+
+// example to demonstrate that an object with property then will be treatable as "thenable"
+// even though this has nothing to do with the Promise "thenable"
+var o = { then: function () {} };
+
+var v = Object.create(o);
+
+v.someStuff = "cool";
+v.otherStuff = "not so cool"
+
+console.log("ownProperty:" + v.hasOwnProperty("then"));
