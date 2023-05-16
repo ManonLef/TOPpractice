@@ -19,3 +19,10 @@ const arrMap = arr.map((word) =>
   word === "blu" ? (word = "white") : (word = word)
 );
 testMap.textContent = "map: " + arrMap;
+
+//find
+const testFind = document.createElement("div");
+test.appendChild(testFind);
+
+const arrFind = arr.find((word) => word === "blu");
+testFind.textContent = "find: " + arrFind; // returns only the first one matching
