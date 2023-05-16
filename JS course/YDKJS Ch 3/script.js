@@ -51,7 +51,7 @@
 // when the function is invoked, a call back to fetchX and fetchY gets passed, and a function as the 3rd parameter
 // the callback fetchX as parameter will be called getX in the actual add function
 // fetchX is a function that takes "cb" as an argument.
-// if getX is called in the add(..), it will be getX(fuction(xVal) { x = xVal; and if y != undefined; cb(x+y)})
+// if getX is called in the add(..), it will be getX(function(xVal) { x = xVal; and if y != undefined; cb(x+y)})
 // fetchX(cb) is the same as getX(function(xVal)) so function(xVal) will be the parameter cb passed to fetchX
 // fetchX(function(xVal){}) translates to:
 // without the timeout:
@@ -78,17 +78,48 @@
 
 // console.log("ownProperty:" + v.hasOwnProperty("then"));
 
-var p = new Promise(function(resolve, reject) {
-  resolve(42);
-})
+// var p = new Promise(function(resolve, reject) {
+//   resolve("double");
+// })
 
-p.then(
-  function fulfilled(msg){
-    foo.bar();
-    console.log("nope");
-    // because p is already resolved, it can't reject anymore. Now there's an error in the resolution and it will just throw an error
-  },
-  function rejected(err){
-    console.log(err);
-  }
-)
+// p.then(
+//   function fulfilled(msg){
+//     // foo.bar();
+//     console.log(msg + " nope");
+//     // because p is already resolved, it can't reject anymore. Now there's an error in the resolution and it will just throw an error
+//   },
+//   function rejected(err){
+//     console.log(err);
+//   }
+// )
+
+// // chaining promises
+// var q = Promise.resolve( 21 );
+
+//   // unchained
+// var q2 = q.then( function(v){
+// 	console.log( v );	// 21
+
+// 	// fulfill `p2` with value `42`
+// 	return v * 2;
+// } );
+
+// // chain off `p2`
+// q2.then( function(v){
+// 	console.log( v );	// 42
+// } );
+
+  // chained
+  var p = Promise.resolve( 21 );
+
+  p
+  .then( function(v){
+    console.log( v );	// 21
+  
+    // fulfill the chained promise with value `42`
+    return v * 2;
+  } )
+  // here's the chained promise
+  .then( function(v){
+    console.log( v );	// 42
+  } );
