@@ -1,48 +1,48 @@
-function add(getX, getY, cb) {
-  var x, y;
-  getX(function (xVal) {
-    log("getting x");
-    log("xval: " + xVal);
-    x = xVal;
-    // both are ready?
-    if (y != undefined) {
-      cb(x + y); // send along sum
-    }
-  });
-  getY(function (yVal) {
-    log("getting Y");
-    log("yval: " + yVal);
-    y = yVal;
-    // both are ready?
-    if (x != undefined) {
-      cb(x + y); // send along sum
-    }
-  });
-}
+// function add(getX, getY, cb) {
+//   var x, y;
+//   getX(function (xVal) {
+//     log("getting x");
+//     log("xval: " + xVal);
+//     x = xVal;
+//     // both are ready?
+//     if (y != undefined) {
+//       cb(x + y); // send along sum
+//     }
+//   });
+//   getY(function (yVal) {
+//     log("getting Y");
+//     log("yval: " + yVal);
+//     y = yVal;
+//     // both are ready?
+//     if (x != undefined) {
+//       cb(x + y); // send along sum
+//     }
+//   });
+// }
 
-// `fetchX()` and `fetchY()` are sync or async
-// functions
-add(fetchX, fetchY, function (sum) {
-  console.log(sum); // that was easy, huh?
-});
+// // `fetchX()` and `fetchY()` are sync or async
+// // functions
+// add(fetchX, fetchY, function (sum) {
+//   console.log(sum); // that was easy, huh?
+// });
 
-// own additions
+// // own additions
 
-function log(msg) {
-  console.log(msg);
-}
+// function log(msg) {
+//   console.log(msg);
+// }
 
-function fetchX(cb) {
-  log("cb:" + cb);
-  setTimeout(() => {
-    cb(5);
-  }, 500);
-}
+// function fetchX(cb) {
+//   log("cb:" + cb);
+//   setTimeout(() => {
+//     cb(5);
+//   }, 500);
+// }
 
-function fetchY(funcEval) {
-  log(funcEval);
-  funcEval(100);
-}
+// function fetchY(funcEval) {
+//   log(funcEval);
+//   funcEval(100);
+// }
 
 // So it took me a while to wrap my head around this. Especially how the yVal and xVal are passed.
 // Conclusion of the whole code: the first out of getY or getX will always fail since the other is undefined.
@@ -69,11 +69,26 @@ function fetchY(funcEval) {
 
 // example to demonstrate that an object with property then will be treatable as "thenable"
 // even though this has nothing to do with the Promise "thenable"
-var o = { then: function () {} };
+// var o = { then: function () {} };
 
-var v = Object.create(o);
+// var v = Object.create(o);
 
-v.someStuff = "cool";
-v.otherStuff = "not so cool"
+// v.someStuff = "cool";
+// v.otherStuff = "not so cool"
 
-console.log("ownProperty:" + v.hasOwnProperty("then"));
+// console.log("ownProperty:" + v.hasOwnProperty("then"));
+
+var p = new Promise(function(resolve, reject) {
+  resolve(42);
+})
+
+p.then(
+  function fulfilled(msg){
+    foo.bar();
+    console.log("nope");
+    // because p is already resolved, it can't reject anymore. Now there's an error in the resolution and it will just throw an error
+  },
+  function rejected(err){
+    console.log(err);
+  }
+)
