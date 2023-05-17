@@ -1,6 +1,4 @@
 # TOPpractice
-TOP projects as I go on my 2022 rerun to pick it back up. 
 
-Here I will share all progression as usual, from the big projects to the tiny exercises. Mostly for me.
-
-In private I opened a repo for a side project where I start applying every bit of new knowledge to a journal/log of progress. 
+I tend to code along with documentation and lessons to get a better grasp on the concepts presented.
+Playing around with the code and making up my own will be done in this repo.
