@@ -166,23 +166,26 @@
 // // with Promise.all it will be only be fulfilled if and when all its constituent promises are fulfilled. If any one of those promises is rejected
 // // the main Promise.all will be rejected
 
-// Same code but now using Promise.race:
+// // Same code but now using Promise.race:
 
-// `request(..)` is a Promise-aware Ajax utility,
-// like we defined earlier in the chapter
+// // `request(..)` is a Promise-aware Ajax utility,
+// // like we defined earlier in the chapter
 
-var p1 = request( "http://some.url.1/" );
-var p2 = request( "http://some.url.2/" );
+// var p1 = request( "http://some.url.1/" );
+// var p2 = request( "http://some.url.2/" );
 
-Promise.race( [p1,p2] )
-.then( function(msg){
-	// either `p1` or `p2` will win the race
-	return request(
-		"http://some.url.3/?v=" + msg
-	);
-} )
-.then( function(msg){
-	console.log( msg );
-} );
+// Promise.race( [p1,p2] )
+// .then( function(msg){
+// 	// either `p1` or `p2` will win the race
+// 	return request(
+// 		"http://some.url.3/?v=" + msg
+// 	);
+// } )
+// .then( function(msg){
+// 	console.log( msg );
+// } );
 
-// this one will return the first promise to resolve.
+// // this one will return the first promise to resolve.
+
+var p = Promise.resolve( 42 );
+console.log(p) // logs: Promise {<fulfilled>: 42}
