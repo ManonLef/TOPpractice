@@ -1,0 +1,3 @@
+- [Recursion video from CS50](https://www.youtube.com/watch?v=mz6tAJMVmfM)
+  - [Fibonacci part of video](https://youtu.be/mz6tAJMVmfM?t=512)
+  - [Collatz part of video](https://youtu.be/mz6tAJMVmfM?t=576)
