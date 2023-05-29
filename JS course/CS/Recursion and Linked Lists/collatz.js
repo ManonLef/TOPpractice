@@ -6,3 +6,15 @@
 
 // Write a recursive function collatz(n) that calculates how many steps it takes to get to 1 if you start from n and recurse as indicated above
 
+function collatz(n, steps = 0) {
+  // base case
+  if (n === 1) {
+    return steps
+  } else if (n%2 === 0) {
+    return collatz(n/2, ++steps)
+  } else if (n%2 !== 0) {
+    return collatz(3*n+1, ++steps)
+  };
+};
+
+console.log(collatz(50))
