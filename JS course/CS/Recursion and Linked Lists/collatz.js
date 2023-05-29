@@ -18,3 +18,5 @@ function collatz(n, steps = 0) {
 };
 
 console.log(collatz(50))
+
+// note on my solution: I started with ++steps before the conditionals at first, overlooking the fact that for n===1, there's no more step needed.
