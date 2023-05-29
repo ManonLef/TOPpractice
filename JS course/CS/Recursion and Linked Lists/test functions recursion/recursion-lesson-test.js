@@ -48,3 +48,26 @@ function factorial(num) {
 console.log("Factorial: " + factorial(5)); // 5 * 4 * 3 * 2 * 1 === 120
 
 // no issues on this one
+
+//////////////////////////////////////// Question 4: Check all values in an array ////////////////////////////////////////
+// Write a function called all which accepts an array and a callback
+// and returns true if every value in the array returns true when passed as parameter to the callback function
+// Sample:
+
+// console.log(allAreLessThanSeven); // false
+
+var allAreLessThanSeven = all([1, 3, 6], function (num) {
+  return num < 7;
+});
+
+function all(arr, cb) {
+  arr.forEach((item) => {
+    if (!cb(item)) return arr = false
+  });
+  if (arr !== false) return arr = true
+  return arr
+}
+
+console.log("allLessSeven: " + allAreLessThanSeven); // false
+
+// notes: first solution didn't even implement a proper recursion. I didn't notice and might be tired so I'll try again in the morning :)
