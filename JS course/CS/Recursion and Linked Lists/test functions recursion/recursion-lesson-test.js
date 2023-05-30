@@ -113,32 +113,134 @@ function less(array, callback) {
 // ********************* my solution **************************
 
 function productOfArray(arr) {
-  const copy = [...arr]
+  const copy = [...arr];
   // base case is no items left or last item?
-  if (!copy[0]) return 1
+  if (!copy[0]) return 1;
   // otherwise more items left so
-  return copy.shift() * productOfArray(copy)
+  return copy.shift() * productOfArray(copy);
 }
 
-var six = productOfArray([1,2,3]) // 6
-var sixty = productOfArray([1,2,3,10]) // 60
+var six = productOfArray([1, 2, 3]); // 6
+var sixty = productOfArray([1, 2, 3, 10]); // 60
 
-console.log("result: " + six, sixty)
+console.log("result: " + six, sixty);
 
-// I struggled due to a very inconvenient mistake. I was adding instead of multiplying. 
+// I struggled due to a very inconvenient mistake. I was adding instead of multiplying.
 
 // ********************* their solution **************************
 
-var sixA = productOfArrayA([1,2,3]) // 6
-var sixtyA = productOfArrayA([1,2,3,10]) // 60
+var sixA = productOfArrayA([1, 2, 3]); // 6
+var sixtyA = productOfArrayA([1, 2, 3, 10]); // 60
 
 console.log(sixA, sixtyA);
 
-function productOfArrayA(array){
-	if(array.length === 0) return 1;
+function productOfArrayA(array) {
+  if (array.length === 0) return 1;
 
-	return array.shift() * productOfArrayA(array);
+  return array.shift() * productOfArrayA(array);
 }
 
 // notes: they used array.length === 0, mine results in the same outcome
 // they didn't opt for a shallow copy this time, which is interesting to me since the original array is edited with their solution
+
+//////////////////////////////////////// Question 6: Search JS object ////////////////////////////////////////
+// Write a function called contains that searches for a value in a nested object. It returns true if the object contains that value.
+// Sample:
+const nestedObject = {
+  data: {
+    info: {
+      stuff: {
+        thing: {
+          moreStuff: {
+            magicNumber: 44,
+            something: "foo2",
+          },
+        },
+      },
+    },
+  },
+};
+
+let sum = 0;
+let hasIt = contains(nestedObject, 44); // true
+// let doesntHaveIt = contains(nestedObject, "foo"); // false
+
+function contains(nest, value) {
+  console.log(
+    ++sum,
+    typeof nest,
+    nest === value,
+    Object.values(nest).includes(value)
+  );
+ 
+  Object.values(nest).forEach((val) => {
+    console.log("forEaching: ", val);
+    if (typeof val === "object") {
+      console.log("it's an object, recursing");
+      return contains(val, value);
+    }
+    if (val === value) {
+      console.log("found one, returning true");
+      return true;
+    }
+    console.log("no object, no match, returning false");
+    return false;
+  });
+}
+
+console.log("hasit?:", hasIt);
+
+// function contains(nest, value) {
+//     console.log("array? ", Array.isArray(nest))
+
+//   // base returns true if one of the values inside an object includes the value passed
+//   console.log("base: ", Object.values(nest).includes(value));
+//   console.log("object?: ", Object.values(nest));
+//   if (Object.values(nest).includes(value)) {
+//     console.log("found!", Object.values(nest)), (Array.isArray(nest));
+//     return true;
+//   } else if (!Object.values(nest).includes(value)) {
+//     // if no match yet, we want to check if there is more nesting and pass that back into the function
+//     console.log("pre-rec: ", Object.values(nest));
+//     Object.values(nest).forEach((keyVal) => {
+//       console.log("type: ", typeof keyVal, keyVal);
+//       console.log("log ", Object.values(nest));
+//       if (typeof keyVal === "object") {
+//         console.log("recursing and passing ", keyVal, value);
+//         return contains(keyVal, value);
+//       }
+//       console.log("boo")
+//     });
+
+//   // base case: no more values left to check?
+// }}
+
+// search: iterate nested object (avoided finding a recursive solution)
+// went to javascript.info instead to look up recursive traversals.
+// still didn't help since it had arrays:
+// went to look up Object methods.
+// keys could be useful to determine if the last key has been reached maybe?:
+// const object1 = {
+//   a: 'somestring',
+//   b: 42,
+//   c: false
+// };
+
+// console.log(Object.keys(object1));
+// Expected output: Array ["a", "b", "c"]
+// values might even be better since we're looking for a value haha:
+// const object1 = {
+//   a: 'somestring',
+//   b: 42,
+//   c: false
+// };
+
+// console.log(Object.values(object1));
+// Expected output: Array ["somestring", 42, false]
+
+// pseudocode:
+// I want to look through all the keys of objects to see if the have a matching value
+// if I use values, I immediately know the amount of values to look through next if they contain their own object to look into.
+//
+// 1. for each nested child: if there are no values left (empty array)
+// 2. we want to return true if a matching value is found
