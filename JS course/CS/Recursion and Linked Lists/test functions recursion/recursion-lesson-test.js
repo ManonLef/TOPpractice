@@ -56,47 +56,50 @@ console.log("Factorial: " + factorial(5)); // 5 * 4 * 3 * 2 * 1 === 120
 
 // console.log(allAreLessThanSeven); // false
 
-
 // ********************* my solution **************************
 
-let allAreLessThanSeven = all([1, 2, 3, 8, 6], function (num) {
+const myArr = [1, 5, 8, 5, 3]
+console.log(myArr)
+let allAreLessThanSeven = all(myArr, function (num) {
   return num < 7;
 });
 
-
 console.log("allLessSeven: " + allAreLessThanSeven); // false
+console.log(myArr)
 
 function all(arr, cb) {
-  if (!arr[0]) return true;
-  if (cb(arr[0]) === false) return false;
+  const copy = [...arr] // arr will not work
+  if (!copy[0]) return true;
+  if (cb(copy[0]) === false) return false;
   else {
-    arr.shift();
-    return all(arr, cb);
+    copy.shift();
+    return all(copy, cb);
   }
 }
 
-let div = document.createElement("div")
-let body = document.querySelector("body")
-body.append(div)
-
 // ********************* their solution **************************
 
-var lessSeven = all([1,2,7], function(num){
-	return num < 7;
+var lessSeven = all([1, 2, 7], function (num) {
+  return num < 7;
 });
 
 console.log(lessSeven); // false
 
-function less(array, callback){
-	var copy = copy || array.slice(); // shallow copies array
+function less(array, callback) {
+  var copy = copy || array.slice(); // shallow copies array
 
-	if(copy.length === 0) return true;
+  if (copy.length === 0) return true;
 
-	if(callback(copy[0])){
-		copy.shift(); // remove first element from array
-		return less(copy, callback);
-	} else {
-		return false;
-	}
+  if (callback(copy[0])) {
+    copy.shift(); // remove first element from array
+    return less(copy, callback);
+  } else {
+    return false;
+  }
 }
+
 // notes: not entirely sure why they opted for a shallow copy, put out a question on discord (found in readme)
+// Redoing my solution with a shallow copy as well. If I were to pass a variable with an array to allAreLessThanSeven it would actually alter the original array.
+// That is not desirable at all so a shallow copy is indeed better
+
+// I still have a different way of solving/cloning for shallow copy.
