@@ -6,6 +6,11 @@
  - noteworthy: checking the recursion would meet the base case before actually recursing avoids and extra recursion call. Quote from article:
     >  *A general procedure for a simple hybrid recursive algorithm is short-circuiting the base case, also known as **arm's-length recursion**. In this case, whether the next step will result in the base case is checked before the function call, avoiding an unnecessary function call.*
 
+- [ ] Look into the syntax for Q4 solution creating shallow copy"
+  - theirs `var copy = copy || array.slice();`
+  - mine `const copy = [...arr]`
+  - figure out why `const copy = arr` will not work. Could be because of array references but I'm not 100%
+
 Discord Question
 
 **Lesson link:** https://www.theodinproject.com/lessons/javascript-recursive-methods#test-yourself > **Q4** https://www.codingame.com/playgrounds/5422/js-interview-prep-recursion

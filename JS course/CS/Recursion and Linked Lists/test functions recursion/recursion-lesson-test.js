@@ -58,17 +58,17 @@ console.log("Factorial: " + factorial(5)); // 5 * 4 * 3 * 2 * 1 === 120
 
 // ********************* my solution **************************
 
-const myArr = [1, 5, 8, 5, 3]
-console.log(myArr)
+const myArr = [1, 5, 8, 5, 3];
+console.log(myArr);
 let allAreLessThanSeven = all(myArr, function (num) {
   return num < 7;
 });
 
 console.log("allLessSeven: " + allAreLessThanSeven); // false
-console.log(myArr)
+console.log(myArr);
 
 function all(arr, cb) {
-  const copy = [...arr] // arr will not work
+  const copy = [...arr]; // arr will not work
   if (!copy[0]) return true;
   if (cb(copy[0]) === false) return false;
   else {
@@ -103,3 +103,42 @@ function less(array, callback) {
 // That is not desirable at all so a shallow copy is indeed better
 
 // I still have a different way of solving/cloning for shallow copy.
+
+//////////////////////////////////////// Question 5: Product of an array ////////////////////////////////////////
+// Write a function called productOfArray which takes in an array of numbers and returns the product of them all
+// Samples
+// var six = productOfArray([1,2,3]) // 6
+// var sixty = productOfArray([1,2,3,10]) // 60
+
+// ********************* my solution **************************
+
+function productOfArray(arr) {
+  const copy = [...arr]
+  // base case is no items left or last item?
+  if (!copy[0]) return 1
+  // otherwise more items left so
+  return copy.shift() * productOfArray(copy)
+}
+
+var six = productOfArray([1,2,3]) // 6
+var sixty = productOfArray([1,2,3,10]) // 60
+
+console.log("result: " + six, sixty)
+
+// I struggled due to a very inconvenient mistake. I was adding instead of multiplying. 
+
+// ********************* their solution **************************
+
+var sixA = productOfArrayA([1,2,3]) // 6
+var sixtyA = productOfArrayA([1,2,3,10]) // 60
+
+console.log(sixA, sixtyA);
+
+function productOfArrayA(array){
+	if(array.length === 0) return 1;
+
+	return array.shift() * productOfArrayA(array);
+}
+
+// notes: they used array.length === 0, mine results in the same outcome
+// they didn't opt for a shallow copy this time, which is interesting to me since the original array is edited with their solution
