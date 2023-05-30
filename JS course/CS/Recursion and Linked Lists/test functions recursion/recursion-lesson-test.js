@@ -56,16 +56,17 @@ console.log("Factorial: " + factorial(5)); // 5 * 4 * 3 * 2 * 1 === 120
 
 // console.log(allAreLessThanSeven); // false
 
-var allAreLessThanSeven = all([1, 3, 6], function (num) {
+let allAreLessThanSeven = all([1, 2, 6, 5, 6], function (num) {
   return num < 7;
 });
 
 function all(arr, cb) {
-  arr.forEach((item) => {
-    if (!cb(item)) return arr = false
-  });
-  if (arr !== false) return arr = true
-  return arr
+  if (!arr[0]) return true;
+  if (cb(arr[0]) === false) return false;
+  else {
+    arr.shift();
+    return all(arr, cb);
+  }
 }
 
 console.log("allLessSeven: " + allAreLessThanSeven); // false
