@@ -11,56 +11,34 @@
   - mine `const copy = [...arr]`
   - figure out why `const copy = arr` will not work. Could be because of array references but I'm not 100%
 
-Discord Question
-
-**Lesson link:** https://www.theodinproject.com/lessons/javascript-recursive-methods#test-yourself > **Q4** https://www.codingame.com/playgrounds/5422/js-interview-prep-recursion
-
-**Question:** As you can see in the code below, my solution is very similar to the "official" solution except for them using a shallow copy of the array.
-
-I'm wondering why they would opt for a shallow copy since as far as I know, it will take the same amount of memory inside the function or even more to create an array copy and manipulate that one. The original array is passed as an argument to the function and will be edited inside the recursive function. However, it will not be edited in the allAreLessThanSeven declaration. I tried the below to see if my reasoning was flawed. Maybe I'm missing something.
-
-I would love to hear your ideas!
-
-**What I've Tried/Expected:** I tried to prove myself wrong on the above, for if it were to alter the original passed array after running the function `all`, a second run would have to return `true` with the array being sliced to empty.
-I created dom elements to synchronously populate with the outcome of `allAreLessThanSeven` but it kept returning `false`, which tells me that the original array passed as an argument is not being altered. 
+- [ ] try understanding why my Q6 function didn't work with foreach, but did with for let ... in, I feel it has to do with continued iterating but can't really figure it out
 
 ```js
-// ***** my solution *****
+// foreach
+function contains(nest, value) {
+  Object.values(nest).forEach(val => {
+    console.log("forEaching: ", val);
+    if (typeof val === "object") {
+      console.log("it's an object, recursing");
+      return contains(val, value);
+    }
 
-let allAreLessThanSeven = all([1, 2, 7, 5, 6], function (num) {
-  return num < 7;
-});
+    if (val === value) {
+      console.log("found one, returning true");
+      return true;
+    }    
+  });
+}
 
-console.log("allLessSeven: " + allAreLessThanSeven); // false
-
-function all(arr, cb) {
-  if (!arr[0]) return true;
-  if (cb(arr[0]) === false) return false;
-  else {
-    arr.shift();
-    return all(arr, cb);
+// for in 
+function contains(nest, value) {
+  for (let key in nest) {
+    if (typeof nest[key] === "object") {
+      return contains(nest[key], value)
+    }
+    if (nest[key] === value) return true
   }
+  return false
 }
-
-// ***** their solution *****
-
-var lessSeven = all([1,2,7], function(num){
-	return num < 7;
-});
-
-console.log(lessSeven); // false
-
-function less(array, callback){
-	var copy = copy || array.slice(); // shallow copies array
-
-	if(copy.length === 0) return true;
-
-	if(callback(copy[0])){
-		copy.shift(); // remove first element from array
-		return less(copy, callback);
-	} else {
-		return false;
-	}
-}
-
 ```
+
