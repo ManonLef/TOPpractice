@@ -56,9 +56,15 @@ console.log("Factorial: " + factorial(5)); // 5 * 4 * 3 * 2 * 1 === 120
 
 // console.log(allAreLessThanSeven); // false
 
-let allAreLessThanSeven = all([1, 2, 6, 5, 6], function (num) {
+
+// ********************* my solution **************************
+
+let allAreLessThanSeven = all([1, 2, 3, 8, 6], function (num) {
   return num < 7;
 });
+
+
+console.log("allLessSeven: " + allAreLessThanSeven); // false
 
 function all(arr, cb) {
   if (!arr[0]) return true;
@@ -69,6 +75,28 @@ function all(arr, cb) {
   }
 }
 
-console.log("allLessSeven: " + allAreLessThanSeven); // false
+let div = document.createElement("div")
+let body = document.querySelector("body")
+body.append(div)
 
-// notes: first solution didn't even implement a proper recursion. I didn't notice and might be tired so I'll try again in the morning :)
+// ********************* their solution **************************
+
+var lessSeven = all([1,2,7], function(num){
+	return num < 7;
+});
+
+console.log(lessSeven); // false
+
+function less(array, callback){
+	var copy = copy || array.slice(); // shallow copies array
+
+	if(copy.length === 0) return true;
+
+	if(callback(copy[0])){
+		copy.shift(); // remove first element from array
+		return less(copy, callback);
+	} else {
+		return false;
+	}
+}
+// notes: not entirely sure why they opted for a shallow copy, put out a question on discord (found in readme)
