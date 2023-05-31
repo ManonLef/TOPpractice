@@ -176,19 +176,39 @@ let doesntHaveIt = contains(nestedObject, "foo"); // false
 //     if (val === value) {
 //       console.log("found one, returning true");
 //       return true;
-//     }    
+//     }
 //   });
 // }
 
 function contains(nest, value) {
   for (let key in nest) {
     if (typeof nest[key] === "object") {
-      return contains(nest[key], value)
+      return contains(nest[key], value);
     }
-    if (nest[key] === value) return true
+    if (nest[key] === value) return true;
   }
-  return false
+  return false;
 }
 
-console.log("hasit?:", hasIt); // undefined?
-console.log("doesntHave?:", doesntHaveIt); // undefined?
+console.log("Q6 hasit?:", hasIt); // undefined?
+console.log("Q6 doesntHave?:", doesntHaveIt); // undefined?
+
+//////////////////////////////////////// Question 7: Parse a multi-dimensional array ////////////////////////////////////////
+// Given a multi-dimensional integer array, return the total number of integers stored inside this array
+// Sample:
+var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+function totalIntegers(arr) {
+  let sum = 0;
+  for (let item of arr) {
+    if (Array.isArray(item)) sum += totalIntegers(item)
+    else if (typeof item === "number") sum++
+  }
+  return sum;
+}
+
+console.log("seven: ", seven);
+
+// pseudo:
+// 1. array can contain values, or another array, or mix of both
+// 2. if value => check num and store if num
+//    if another array; recurse that array
