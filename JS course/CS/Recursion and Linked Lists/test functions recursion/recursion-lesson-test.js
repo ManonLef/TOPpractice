@@ -197,6 +197,8 @@ console.log("Q6 doesntHave?:", doesntHaveIt); // undefined?
 // Given a multi-dimensional integer array, return the total number of integers stored inside this array
 // Sample:
 var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+
+// ********************* my solution **************************
 function totalIntegers(arr) {
   let sum = 0;
   for (let item of arr) {
@@ -210,5 +212,28 @@ console.log("seven: ", seven);
 
 // pseudo:
 // 1. array can contain values, or another array, or mix of both
-// 2. if value => check num and store if num
+// 2. if value => check num and +1 to var if num
 //    if another array; recurse that array
+
+// ********************* their solution **************************
+
+var eight = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+
+function totalInt(array){
+	if(array.length === 0) return 0;
+
+	let total = 0;
+	let first = array.shift();
+
+	if (Array.isArray(first)){
+		total += totalInt(first); 
+	} else if (Number.isInteger(first)) {
+		total += 1;
+	}
+
+	return total + totalInt(array);
+}
+
+console.log(eight);
+
+// not sure why they need 0

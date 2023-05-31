@@ -13,6 +13,7 @@
 
 - [ ] try understanding why my Q6 function didn't work with foreach, but did with for let ... in, I feel it has to do with continued iterating but can't really figure it out
 
+- [ ] Q7: not sure why they implement a case for array 0 here.
 ```js
 // foreach
 function contains(nest, value) {
