@@ -247,29 +247,59 @@ console.log(eight);
 
 //////////////////////////////////////// Question 8: Write a function that sums squares of numbers in list that may contain more lists ////////////////////////////////////////
 // Sample:
-let l = [1,2,3]; 
+let l = [1, 2, 3];
 console.log(SumSquares(l)); // 1 + 4 + 9 = 14
 
-l = [[1,2],3]; 
+l = [[1, 2], 3];
 console.log(SumSquares(l)); // 1 + 4 + 9 = 14
 
-l = [[[[[[[[[1]]]]]]]]] 
+l = [[[[[[[[[1]]]]]]]]];
 console.log(SumSquares(l)); // 1 = 1
 
-l = [10,[[10],10],[10]] 
+l = [10, [[10], 10], [10]];
 console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
+
+// ********************* my solution **************************
 
 function SumSquares(array) {
   let sum = 0;
   for (let item of array) {
     if (Array.isArray(item)) sum += SumSquares(item);
-    else if (typeof item === "number") sum += item*item;
+    else if (typeof item === "number") sum += item * item;
   }
   return sum;
 }
 
-// pseudo: 
+// ********************* their solution **************************
+
+var lA = [1, 2, 3];
+console.log(SumSquaresA(lA)); // 14
+
+lA = [[1, 2], 3];
+console.log(SumSquaresA(lA)); // 14
+
+lA = [[[[[[[[[1]]]]]]]]];
+console.log(SumSquaresA(lA)); // 1
+
+lA = [10, [[10], 10], [10]];
+console.log(SumSquaresA(lA)); // 400
+
+function SumSquaresA(array) {
+  if (array.length === 0) return 0;
+  let total = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      total += SumSquares(array[i]);
+    } else {
+      total += array[i] * array[i];
+    }
+  }
+  return total;
+}
+// pseudo:
 // at first glance, it looks similar to Q7
 // difference: if num => square it and store.
 
 // and it was. rewrote the Q7 function to fit the bill
+// Their solution is just as elaborate as their to Q7
