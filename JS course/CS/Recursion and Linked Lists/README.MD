@@ -20,6 +20,8 @@ Figured it out thanks to Nevz who helped me out on Discord. I completely overloo
 - [ ] look into the some method for arrays
 
 - [ ] Q7: not sure why they implement a case for array 0 here.
+
+- Q9: their solution is way more elegant using concat.
 ```js
 // foreach
 function contains(nest, value) {
