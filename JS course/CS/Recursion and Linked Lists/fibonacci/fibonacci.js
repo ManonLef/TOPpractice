@@ -11,14 +11,33 @@
 function fibs(num) {
   if (num >= 2) {
     let array = [0, 1];
-    for (let i = 2; i <= num-1; i++) {
-      array.push(array[i-1]+array[i-2])
+    for (let i = 2; i < num; i++) {
+      array.push(array[i - 1] + array[i - 2]);
     }
     return array;
-  }
-  else if (num === 1 ) return [0]
+  } else if (num === 1) return [0];
   console.error("not a valid number to output fibonacci sequence");
 }
 
-console.log(fibs(1));
-console.log(fibs(8));
+console.log("fibs: ", fibs(1));
+console.log("fibs: ", fibs(20));
+
+function fibsRec(num) {
+  // push sum of last two
+  let array = [0, 1];
+  for (let i = 2; i < num; i++) {
+    array = array.concat([array[array.length - 2] + array[array.length - 1]]);
+    fibsRec(num - 1);
+  }
+  return array;
+}
+
+console.log("fibsRec 1: ", fibsRec(1));
+console.log("fibsRec 2: ", fibsRec(2));
+console.log("fibsRec 3: ", fibsRec(3));
+console.log("fibsRec 5: ", fibsRec(5));
+console.log("fibsRec 10: ", fibsRec(10));
+// console.log("fibsRec 20: ", fibsRec(20));
+
+// the base array for num 1 and num 2 for index 0 and index 1 are = value 0 and value 1
+// if we pass number 10, we want to add 10 numbers to the array, so 10 iterations
