@@ -320,23 +320,29 @@ console.log(replicate(-2, 6)); // []
 // ********************* my solution **************************
 
 function replicate(repeats, number) {
+  if (repeats <= 0) return [];
   const array = [];
-  
-  if (repeats <= 0) return array
-  else if (repeats === 1) array.push(number)
-  else array.push(number, replicate(repeats - 1, number)[0]);
-  
+  while (repeats > 1) {
+    --repeats
+    array.push(number, replicate(--repeats, number)[0]);
+  }
+
+  array.push(number);
+  // if (repeats <= 0) return array
+  // else if (repeats === 1) array.push(number)
+  // else array.push(number, replicate(repeats - 1, number)[0]);
+
   return array;
 }
 
 // ********************* their solution **************************
 
-console.log(replicateA(3, 5)) // [5, 5, 5]
-console.log(replicateA(1, 69)) // [69]
-console.log(replicateA(-2, 6)) // []
+// console.log(replicateA(3, 5)) // [5, 5, 5]
+// console.log(replicateA(1, 69)) // [69]
+// console.log(replicateA(-2, 6)) // []
 
-function replicateA(times, number){
-	if(times <= 0) return [];
+// function replicateA(times, number){
+// 	if(times <= 0) return [];
 
-	return [number].concat(replicateA(times - 1, number));
-}
+// 	return [number].concat(replicateA(times - 1, number));
+// }
