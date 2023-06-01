@@ -161,49 +161,56 @@ const nestedObject = {
   },
 };
 
-let sum = 0;
-let hasIt = contains(nestedObject, 44); // true
-let doesntHaveIt = contains(nestedObject, "foo"); // false
+// function 1 using forEach not working
+
+// let hasIt = contains(nestedObject, 44); // should be true
+// let doesntHaveIt = contains(nestedObject, "foo"); // should be false
 
 // function contains(nest, value) {
-//   Object.values(nest).forEach(val => {
-//     console.log("forEaching: ", val);
+//   Object.values(nest).forEach((val) => {
+//     console.log(val);
 //     if (typeof val === "object") {
-//       console.log("it's an object, recursing");
 //       return contains(val, value);
 //     }
-
-//     if (val === value) {
-//       console.log("found one, returning true");
-//       return true;
-//     }
+//     console.log("found it ", val);
+//     if (val === value) return true;
 //   });
+//   return false;
 // }
 
-function contains(nest, value) {
+// console.log("Q6 hasit?:", hasIt); // returns false ?!! should be true
+// console.log("Q6 doesntHave?:", doesntHaveIt); // returns false
+
+// function 2 using for...in works. Changed the function and variable names by adding an A to them
+
+let hasItA = containsA(nestedObject, 44); // should be true
+let doesntHaveItA = containsA(nestedObject, "foo"); // should be false
+
+function containsA(nest, value) {
   for (let key in nest) {
+    console.log("A ", nest[key]);
     if (typeof nest[key] === "object") {
-      return contains(nest[key], value);
+      return containsA(nest[key], value);
     }
     if (nest[key] === value) return true;
   }
   return false;
 }
 
-console.log("Q6 hasit?:", hasIt); // undefined?
-console.log("Q6 doesntHave?:", doesntHaveIt); // undefined?
+console.log("Q6A hasit?:", hasItA); // true
+console.log("Q6A doesntHave?:", doesntHaveItA); // false
 
 //////////////////////////////////////// Question 7: Parse a multi-dimensional array ////////////////////////////////////////
 // Given a multi-dimensional integer array, return the total number of integers stored inside this array
 // Sample:
-var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+var seven = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]); // 7
 
 // ********************* my solution **************************
 function totalIntegers(arr) {
   let sum = 0;
   for (let item of arr) {
-    if (Array.isArray(item)) sum += totalIntegers(item)
-    else if (typeof item === "number") sum++
+    if (Array.isArray(item)) sum += totalIntegers(item);
+    else if (typeof item === "number") sum++;
   }
   return sum;
 }
@@ -217,21 +224,21 @@ console.log("seven: ", seven);
 
 // ********************* their solution **************************
 
-var eight = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+var eight = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]); // 7
 
-function totalInt(array){
-	if(array.length === 0) return 0;
+function totalInt(array) {
+  if (array.length === 0) return 0;
 
-	let total = 0;
-	let first = array.shift();
+  let total = 0;
+  let first = array.shift();
 
-	if (Array.isArray(first)){
-		total += totalInt(first); 
-	} else if (Number.isInteger(first)) {
-		total += 1;
-	}
+  if (Array.isArray(first)) {
+    total += totalInt(first);
+  } else if (Number.isInteger(first)) {
+    total += 1;
+  }
 
-	return total + totalInt(array);
+  return total + totalInt(array);
 }
 
 console.log(eight);
