@@ -244,3 +244,32 @@ function totalInt(array) {
 console.log(eight);
 
 // not sure why they need 0
+
+//////////////////////////////////////// Question 8: Write a function that sums squares of numbers in list that may contain more lists ////////////////////////////////////////
+// Sample:
+let l = [1,2,3]; 
+console.log(SumSquares(l)); // 1 + 4 + 9 = 14
+
+l = [[1,2],3]; 
+console.log(SumSquares(l)); // 1 + 4 + 9 = 14
+
+l = [[[[[[[[[1]]]]]]]]] 
+console.log(SumSquares(l)); // 1 = 1
+
+l = [10,[[10],10],[10]] 
+console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
+
+function SumSquares(array) {
+  let sum = 0;
+  for (let item of array) {
+    if (Array.isArray(item)) sum += SumSquares(item);
+    else if (typeof item === "number") sum += item*item;
+  }
+  return sum;
+}
+
+// pseudo: 
+// at first glance, it looks similar to Q7
+// difference: if num => square it and store.
+
+// and it was. rewrote the Q7 function to fit the bill
