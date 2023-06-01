@@ -317,6 +317,8 @@ console.log(replicate(-2, 6)); // []
 // populate said array when the first argument is higher than 0
 // return the array when the first arg is 0 or less
 
+// ********************* my solution **************************
+
 function replicate(repeats, number) {
   const array = [];
   
@@ -325,4 +327,16 @@ function replicate(repeats, number) {
   else array.push(number, replicate(repeats - 1, number)[0]);
   
   return array;
+}
+
+// ********************* their solution **************************
+
+console.log(replicateA(3, 5)) // [5, 5, 5]
+console.log(replicateA(1, 69)) // [69]
+console.log(replicateA(-2, 6)) // []
+
+function replicateA(times, number){
+	if(times <= 0) return [];
+
+	return [number].concat(replicateA(times - 1, number));
 }
