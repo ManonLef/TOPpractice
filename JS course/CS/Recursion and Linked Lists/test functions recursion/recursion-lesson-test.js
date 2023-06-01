@@ -303,3 +303,26 @@ function SumSquaresA(array) {
 
 // and it was. rewrote the Q7 function to fit the bill
 // Their solution is just as elaborate as their to Q7
+
+//////////////////////////////////////// Question 9 ////////////////////////////////////////
+// The function should return an array containing repetitions of the number argument.
+// For instance, replicate(3, 5) should return [5,5,5]. If the times argument is negative, return an empty array.
+// Sample:
+console.log(replicate(3, 5)); // [5, 5, 5]
+console.log(replicate(1, 69)); // [69]
+console.log(replicate(-2, 6)); // []
+
+// pseudo:
+// I would like to create an empty array
+// populate said array when the first argument is higher than 0
+// return the array when the first arg is 0 or less
+
+function replicate(repeats, number) {
+  const array = [];
+  
+  if (repeats <= 0) return array
+  else if (repeats === 1) array.push(number)
+  else array.push(number, replicate(repeats - 1, number)[0]);
+  
+  return array;
+}
