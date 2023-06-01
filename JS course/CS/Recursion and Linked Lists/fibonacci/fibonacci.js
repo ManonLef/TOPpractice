@@ -26,7 +26,7 @@ function fibsRec(num) {
   // push sum of last two
   let array = [0, 1];
   for (let i = 2; i < num; i++) {
-    array = array.concat([array[array.length - 2] + array[array.length - 1]]);
+    array.push(array[array.length - 2] + array[array.length - 1]);
     fibsRec(num - 1);
   }
   return array;
@@ -37,7 +37,10 @@ console.log("fibsRec 2: ", fibsRec(2));
 console.log("fibsRec 3: ", fibsRec(3));
 console.log("fibsRec 5: ", fibsRec(5));
 console.log("fibsRec 10: ", fibsRec(10));
-// console.log("fibsRec 20: ", fibsRec(20));
+console.log("fibsRec 11: ", fibsRec(11));
+console.log("fibsRec 12: ", fibsRec(12));
+console.log("fibsRec 13: ", fibsRec(13));
+
 
 // the base array for num 1 and num 2 for index 0 and index 1 are = value 0 and value 1
 // if we pass number 10, we want to add 10 numbers to the array, so 10 iterations
