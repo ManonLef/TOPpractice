@@ -33,6 +33,24 @@ function fibsRec(num) {
   }
 }
 
+// Pseudo code I used:
+// Let's say I start with passing the number 3:
+// I want to be able to add the last two numbers of the result of fibonacci number 2
+// So I will take an empty array to start with (I don't want to reinitialize anywhere here)
+// I will concat the empty array with the result of the previous array returned from num 2 ([0, 1])
+// now when I have that array, I will take the last two numbers, add them up and return that.
+// This is now the result of fibsRec(3)
+//
+// Will this work for higher numbers?
+// let's say fibsRec(5)
+// - gets to num > 2 if statement.
+// - will concat the result of fibsRec(4) to the array
+// - fibsRec(4) will in turn first have to solve fibsRec(3)
+// - fibsRec(3) will be resolved as stated above and return [0,1,1]
+// - fibsRec(4) can no resolve with returning [0,1,1,2]
+// - fibsRec(5) will now resolve and return [0,1,1,2,3]
+
+
 console.log("fibsRec 1: ", fibsRec(1));
 console.log("fibsRec 2: ", fibsRec(2));
 console.log("fibsRec 3: ", fibsRec(3));
