@@ -22,14 +22,15 @@ function fibs(num) {
 console.log("fibs: ", fibs(1));
 console.log("fibs: ", fibs(20));
 
+// Recursive Fibonacci
+
 function fibsRec(num) {
-  // push sum of last two
-  let array = [0, 1];
-  for (let i = 2; i < num; i++) {
-    array.push(array[array.length - 2] + array[array.length - 1]);
-    fibsRec(num - 1);
+  if (num === 1) return [0];
+  if (num === 2) return [0, 1];
+  if (num > 2) {
+    let array = [].concat(fibsRec(num - 1));
+    return array.concat(array[array.length - 1] + array[array.length - 2]);
   }
-  return array;
 }
 
 console.log("fibsRec 1: ", fibsRec(1));
@@ -40,7 +41,8 @@ console.log("fibsRec 10: ", fibsRec(10));
 console.log("fibsRec 11: ", fibsRec(11));
 console.log("fibsRec 12: ", fibsRec(12));
 console.log("fibsRec 13: ", fibsRec(13));
-
-
+console.log("fibsRec 14: ", fibsRec(14));
+console.log("fibsRec 15: ", fibsRec(15));
+console.log("fibsRec 20: ", fibsRec(20));
 // the base array for num 1 and num 2 for index 0 and index 1 are = value 0 and value 1
 // if we pass number 10, we want to add 10 numbers to the array, so 10 iterations
