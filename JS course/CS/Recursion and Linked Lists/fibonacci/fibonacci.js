@@ -59,7 +59,7 @@ function fibsRec(num) {
 // - will concat the result of fibsRec(4) to the array
 // - fibsRec(4) will in turn first have to solve fibsRec(3)
 // - fibsRec(3) will be resolved as stated above and return [0,1,1]
-// - fibsRec(4) can no resolve with returning [0,1,1,2]
+// - fibsRec(4) can not resolve with returning [0,1,1,2]
 // - fibsRec(5) will now resolve and return [0,1,1,2,3]
 
 console.log("fibsRec 1: ", fibsRec(1));
@@ -73,3 +73,4 @@ console.log("fibsRec 13: ", fibsRec(13));
 console.log("fibsRec 14: ", fibsRec(14));
 console.log("fibsRec 15: ", fibsRec(15));
 console.log("fibsRec 20: ", fibsRec(20));
+console.log("fibsRec 30: ", fibsRec(30));
