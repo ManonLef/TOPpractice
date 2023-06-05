@@ -30,9 +30,9 @@ function mergeSortA(array) {
   console.log("first: ", firstHalf);
   console.log("second: ", secondHalf);
   // 2. sort left half
-  let a = mergeSort(firstHalf);
+  let a = mergeSortA(firstHalf);
   // 3. sort right half
-  let b = mergeSort(secondHalf);
+  let b = mergeSortA(secondHalf);
   // merge sorted halves
   console.log("a ", a);
   console.log("b ", b);
@@ -79,5 +79,44 @@ function mergeSortA(array) {
   return merged;
 }
 
-let unsortedArray = [3, 4, 6, 5, 7, 2, 1, 8];
+function mergeSort(array) {
+  if (array.length < 2) return array;
+  console.log("rewrite* array ", array);
+
+  let firstHalf = array.slice(0, array.length / 2);
+  let secondHalf = array.slice(array.length / 2);
+
+  let left = mergeSort(firstHalf);
+  let right = mergeSort(secondHalf);
+  console.log("rewrite* left ", left, "right ", right);
+
+  let merged = [];
+
+  // rewritten version but now I'll rewrite the original arrays until one of them is zero
+  // this way it will focus on the first index only.
+  // if one of them is empty, it will populate the merged list with the leftovers from the other array.
+  while (left.length !== 0 && right.length !== 0) {
+    if (left[0] < right[0]) {
+      merged.push(left.shift());
+      console.log("rewrite* merged shifted left", merged, "left ", left);
+    } else {
+      merged.push(right.shift());
+      console.log("rewrite* merged shifted left", merged, "right ", right);
+    }
+  }
+  while (left.length !== 0) {
+    merged.push(left.shift());
+    console.log("rewrite* left not zero", merged, "left ", left);
+  }
+  while (right.length !== 0) {
+    merged.push(right.shift());
+    console.log("rewrite* right not zero", merged, "right ", right )
+  }
+
+  console.log("rewrite* merged ", merged);
+  return merged;
+}
+
+let unsortedArray = [9, 4, 6, 5, 7, 2, 3, 8, 1];
+mergeSortA(unsortedArray);
 mergeSort(unsortedArray);
