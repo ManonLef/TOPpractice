@@ -15,9 +15,13 @@ function mergeSort(array) {
     return;
   }
   console.log("next", array)
-  console.log("length: ", length)
-  // divide array in half
-  
+  // divide array in half to sort
+  let firstHalf = array.slice(0, length/2)
+  let secondHalf = array.slice(length/2)
+  console.log("first: ", firstHalf)
+  console.log("second: ", secondHalf)
+  mergeSort(firstHalf)
+  mergeSort(secondHalf)
 }
 
 let unsortedArray = [1, 4, 5, 2, 7, 3, 9, 6];
