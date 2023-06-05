@@ -11,6 +11,8 @@ console.log("ohai merge-sort");
 // so up to the sorting this function makes sense. 
 // when we start returning 1 number and merging is where it gets tricky
 // since I think I want to avoid it continuously sorting the merged array.
+// So once the initial array is sorted, I need to keep merging all the results without
+// it going back to sorting
 
 function mergeSort(array) {
   let length = array.length
@@ -44,7 +46,7 @@ function mergeSort(array) {
     indexB++
   }
 
-  console.log("merged: ", merged)
+  console.log("returning merged: ", merged)
   return merged
 }
 
