@@ -9,7 +9,6 @@
 ///////////////////////////// F I N A L  ////  S O L U T I O N /////////////////////////////
 
 function mergeSort(array) {
-  console.log("rewrite* array ", array);
   if (array.length < 2) return array;
 
   let firstHalf = array.slice(0, array.length / 2);
@@ -34,9 +33,12 @@ function mergeSort(array) {
     merged.push(right.shift());
   }
 
-  console.log("returning merged ", merged);
   return merged;
 }
 
-let unsortedArray = [9, 4, 6, 5, 7, 2, 3, 8, 1, 13, 10, 12, 14, 11];
-mergeSort(unsortedArray);
+console.log(mergeSort([9, 4, 6, 5, 7, 2, 3, 8, 1, 13, 10, 12, 14, 11, 15])); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+console.log(mergeSort([9, 4, 6, 5, 7, 2, 3, 8])); // [2, 3, 4, 5, 6, 7, 8, 9];
+console.log(mergeSort([])); // [];
+console.log(mergeSort([5, 0, 10, -3, -1, 4, 12, -5])); // [-5, -3, -1, 0, 4, 5, 10, 12];
+
+// notes after looking at other solutions. I could probably refactor the code in the future when I have let this solution sink in.
