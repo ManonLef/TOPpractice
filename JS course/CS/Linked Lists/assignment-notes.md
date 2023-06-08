@@ -2,8 +2,8 @@
 
 You will need two classes or factories:
 
-- [ ] 1. `LinkedList` class / factory, which will represent the full list.
-- [ ] 2. `Node` class / factory, containing a `value` property and a link to the `nextNode`, set both as `null` by default.
+- [x] 1. `LinkedList` class / factory, which will represent the full list.
+- [x] 2. `Node` class / factory, containing a `value` property and a link to the `nextNode`, set both as `null` by default.
 
 Build the following functions in your linked list class:
 
@@ -26,3 +26,8 @@ Build the following functions in your linked list class:
 
 **Extra Credit Tip:** When you insert or remove a node, consider how it will affect the existing nodes. Some of the nodes will need their `nextNode` link updated.
 
+## Notes
+- class point 2:
+  - *"set both as `null` by default."* <- not sure if I implemented this correctly at this point
+
+- At this point I've decided that I'll make this into a separate repo instead of keeping it inside my practice repoß
